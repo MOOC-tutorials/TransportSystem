@@ -10,7 +10,7 @@ import api.IQueue;
 /**
  * Clase que modela una fila
  * @author hd.castellanos, da.ramos
- * Implementación basada en: http://algs4.cs.princeton.edu/13stacks/Queue.java.html
+ * Implementaciï¿½n basada en: http://algs4.cs.princeton.edu/13stacks/Queue.java.html
  * @param <E>
  */
 public class Queue <E> implements IQueue<E>  {
@@ -107,7 +107,7 @@ public class Queue <E> implements IQueue<E>  {
 
 
 	/**
-	 * @return true si la fila está vacía, false si no está vacía
+	 * @return true si la fila estï¿½ vacï¿½a, false si no estï¿½ vacï¿½a
 	 */
 
 	public boolean isEmpty()
@@ -123,13 +123,13 @@ public class Queue <E> implements IQueue<E>  {
 	}
 
 	/**
-	 * @return El tamaño de la fila 
+	 * @return El tamaï¿½o de la fila 
 	 */
 	public int getSize(){
 		return size;
 	}
 	/**
-	 * Agrega un  nuevo nodo  con el elemento dado por parametro  a la fila, modifica el tamaño sumandole 1 
+	 * Agrega un  nuevo nodo  con el elemento dado por parametro  a la fila, modifica el tamaï¿½o sumandole 1 
 	 * @param pElement element to add
 	 */
 	public void enqueue(E pElement) {
@@ -144,8 +144,8 @@ public class Queue <E> implements IQueue<E>  {
 	}
 
 	/**
-	 * Remueve y retorna el elemento en esta fila que esta en la primera posición
-	 * @returns El elemento que se eliminó
+	 * Remueve y retorna el elemento en esta fila que esta en la primera posiciï¿½n
+	 * @returns El elemento que se eliminï¿½
 	 * @throws NoSuchElementException Si la fila esta vacia 
 	 */
 	public E dequeue() {
@@ -202,6 +202,11 @@ public class Queue <E> implements IQueue<E>  {
 			E element = current.element;
 			current = current.next;
 			return element;
+		}
+		@Override
+		public void remove() {
+			// TODO Auto-generated method stub
+			
 		}
 		
 	}

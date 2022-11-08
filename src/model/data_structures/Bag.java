@@ -8,9 +8,9 @@ import java.util.NoSuchElementException;
 import api.IList;
 
 /**
- * Implementación de una lista doblemente encadenada con referencias a su primer y último elemento.
+ * Implementaciï¿½n de una lista doblemente encadenada con referencias a su primer y ï¿½ltimo elemento.
  * Se empiezan a contar los nodos desde 0.
- * Implementación basada en: http://algs4.cs.princeton.edu/13stacks/DoublyLinkedList.java.html
+ * Implementaciï¿½n basada en: http://algs4.cs.princeton.edu/13stacks/DoublyLinkedList.java.html
  * @author da.ramos, hd.castellanos
  * @param <T> Tipo de datos que va a manejar la lista.
  */
@@ -22,17 +22,17 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 	private Node<T> first;
 
 	/**
-	 * Último nodo de la lista.
+	 * ï¿½ltimo nodo de la lista.
 	 */
 	private Node<T> last;
 
 	/**
-	 * Tamaño de la lista.
+	 * Tamaï¿½o de la lista.
 	 */
 	private int size;
 
 	/**
-	 * Crea una lista vacía.
+	 * Crea una lista vacï¿½a.
 	 */
 	public Bag(){
 		first = null;
@@ -41,8 +41,8 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 	}
 
 	/**
-	 * Retorna el tamaño de la lista.
-	 * @return Tamaño de la lista.
+	 * Retorna el tamaï¿½o de la lista.
+	 * @return Tamaï¿½o de la lista.
 	 */
 	@Override
 	public int getSize() {
@@ -50,8 +50,8 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 	}
 
 	/**
-	 * Indica si la lista está vacía.
-	 * @return true si la lista está vacía, false de lo contrario.
+	 * Indica si la lista estï¿½ vacï¿½a.
+	 * @return true si la lista estï¿½ vacï¿½a, false de lo contrario.
 	 */
 	@Override
 	public boolean isEmpty() {
@@ -67,8 +67,8 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 	}
 
 	/**
-	 * Retorna el último elemento de la lista.
-	 * @return Último elemento de la lista.
+	 * Retorna el ï¿½ltimo elemento de la lista.
+	 * @return ï¿½ltimo elemento de la lista.
 	 */
 	public T getLast(){
 		return last.data;
@@ -76,8 +76,8 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 
 
 	/**
-	 * Agrega un elemento en el último lugar de la lista encadenada.
-	 * @param pToAdd información que se va a agregar.
+	 * Agrega un elemento en el ï¿½ltimo lugar de la lista encadenada.
+	 * @param pToAdd informaciï¿½n que se va a agregar.
 	 */
 	@Override
 	public void addAtEnd(T pToAdd) {
@@ -86,7 +86,7 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 
 	/**
 	 * Agrega un elemento el el primer lugar de la lista encadenada.
-	 * @param pToAdd Información que se va a agregar.
+	 * @param pToAdd Informaciï¿½n que se va a agregar.
 	 */
 	public void addAtBeginning( T pToAdd ){
 		Node<T> toAdd = new Node<>();
@@ -104,9 +104,9 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 	}
 
 	/**
-	 * Inserta un nuevo nodo después de otro nodo en la lista.
-	 * @param pPrevious Nodo al que se le va a agregar después el nuevo nodo.
-	 * @param pData Información que se va a agregar.
+	 * Inserta un nuevo nodo despuï¿½s de otro nodo en la lista.
+	 * @param pPrevious Nodo al que se le va a agregar despuï¿½s el nuevo nodo.
+	 * @param pData Informaciï¿½n que se va a agregar.
 	 */
 	private void insertAfter( Node<T> pPrevious, T pData ){
 		Node<T> toAdd = new Node<>();
@@ -131,9 +131,9 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 	}
 
 	/**
-	 * Agrega un nodo en una posición de la lista.
-	 * @param pToAdd Información que se va a agregar.
-	 * @param pIndex Índice de la lista donde se va a agregar el nodo.
+	 * Agrega un nodo en una posiciï¿½n de la lista.
+	 * @param pToAdd Informaciï¿½n que se va a agregar.
+	 * @param pIndex ï¿½ndice de la lista donde se va a agregar el nodo.
 	 */
 	@Override
 	public void addAtK(T pToAdd, int pIndex) {
@@ -147,13 +147,13 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 		else if( pIndex == size)
 			addAtEnd(pToAdd);
 		else
-			throw new NoSuchElementException( "El índice ingresado no existe" );
+			throw new NoSuchElementException( "El ï¿½ndice ingresado no existe" );
 	}
 
 	/**
-	 * Reemplaza el valor del nodo con el índice ingresado por parámetro por la información ingresada por parámetro.
-	 * @param pData Información que se va a reemplazar en el nodo.
-	 * @param pIndex Índice del nodo en el que se quiere ingresar la información.
+	 * Reemplaza el valor del nodo con el ï¿½ndice ingresado por parï¿½metro por la informaciï¿½n ingresada por parï¿½metro.
+	 * @param pData Informaciï¿½n que se va a reemplazar en el nodo.
+	 * @param pIndex ï¿½ndice del nodo en el que se quiere ingresar la informaciï¿½n.
 	 */
 	public void replace( T pData, int pIndex ){
 		Node<T> current = null;
@@ -171,10 +171,10 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 
 
 	/**
-	 * Retorna el elemento en el índice ingresado por parámetro.
+	 * Retorna el elemento en el ï¿½ndice ingresado por parï¿½metro.
 	 * Tomado de "A practical guide to data structures and algorithms using Java"
-	 * @param pIndex Índice del elemento.
-	 * @return Elemento ubicado en el índice que entra por parámetro.
+	 * @param pIndex ï¿½ndice del elemento.
+	 * @return Elemento ubicado en el ï¿½ndice que entra por parï¿½metro.
 	 */
 	@Override
 	public T getElement(int pIndex) {
@@ -190,9 +190,9 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 	}
 
 	/**
-	 * Retorna el nodo en el índice ingresado por parámetro.
-	 * @param pIndex Índice de la posición donde se va a agregar el elemento.
-	 * @return Nodo ubicado en el índice que entra por parámetro.
+	 * Retorna el nodo en el ï¿½ndice ingresado por parï¿½metro.
+	 * @param pIndex ï¿½ndice de la posiciï¿½n donde se va a agregar el elemento.
+	 * @return Nodo ubicado en el ï¿½ndice que entra por parï¿½metro.
 	 */
 	private Node<T> getNode(int pIndex) {
 		Node<T> current = null;
@@ -208,7 +208,7 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 
 	/**
 	 * Elimina un nodo de la lista.
-	 * @param pNode elimina el nodo que se le pasa por parámetro.
+	 * @param pNode elimina el nodo que se le pasa por parï¿½metro.
 	 */
 	@Override
 	public void delete( T pNode ) {
@@ -243,7 +243,7 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 	}
 
 	/**
-	 * Elimina un nodo de la posición que entra por parámetro.
+	 * Elimina un nodo de la posiciï¿½n que entra por parï¿½metro.
 	 */
 	@Override
 	public void deleteAtK(int pIndex) {
@@ -251,9 +251,9 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 	}
 
 	/**
-	 * Retorna la posición del elemento ingresado por parámetro.
-	 * Método tomado de "A practical guide to algorithms and data structures using java"
-	 * @return Posición del elemento ingresado por parámetro.
+	 * Retorna la posiciï¿½n del elemento ingresado por parï¿½metro.
+	 * Mï¿½todo tomado de "A practical guide to algorithms and data structures using java"
+	 * @return Posiciï¿½n del elemento ingresado por parï¿½metro.
 	 */
 	@Override
 	public int positionOf(T pData) {
@@ -298,12 +298,12 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 	/**
 	 * Cada nodo contiene un elemento.
 	 * Clase tomada de 
-	 * @param <T> Tipo de elemento que tendrá el nodo
+	 * @param <T> Tipo de elemento que tendrï¿½ el nodo
 	 */
 	private class Node<T>{
 
 		/**
-		 * Información contenida por el nodo.
+		 * Informaciï¿½n contenida por el nodo.
 		 */
 		private T data;
 
@@ -318,7 +318,7 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 		private Node<T> previous;
 
 		/**
-		 * Imprime la información del nodo en la consola.
+		 * Imprime la informaciï¿½n del nodo en la consola.
 		 */
 		public String toString(){
 			return data + ",";
@@ -336,12 +336,12 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 		private Node<T> current = first;
 
 		/**
-		 * Último elemento en el que estuvo el iterador.
+		 * ï¿½ltimo elemento en el que estuvo el iterador.
 		 */
 		private Node<T> lastAccessed;
 
 		/**
-		 * Índice del elemento en el que se encuentra el iterador.
+		 * ï¿½ndice del elemento en el que se encuentra el iterador.
 		 */
 		private int index = 0;
 
@@ -368,6 +368,12 @@ public class Bag<T> implements IList<T>, Iterable<T>{
 				index++;
 				return item;
 			}
+		}
+
+		@Override
+		public void remove() {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 }

@@ -179,6 +179,12 @@ public class Stack<E> implements IStack<E>, Iterable<E>, Comparable<Stack<E>>{
 			current = current.next;
 			return item;
 		}
+
+		@Override
+		public void remove() {
+			// TODO Auto-generated method stub
+			
+		}
 		
 	}
 	@Override
