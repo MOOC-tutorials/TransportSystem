@@ -1,15 +1,16 @@
+
 package model.data_structures;
 
 import java.util.NoSuchElementException;
 
 public class EdgeWeightedGraph<K, V> {
 	/**
-	 * Número de vértices del grafo
+	 * NÃºmero de vÃ©rtices del grafo
 	 */
 	private int V;
 	
 	/**
-	 * Número de ejes del grafo
+	 * NÃºmero de ejes del grafo
 	 */
 	private int E;
 	
@@ -19,7 +20,7 @@ public class EdgeWeightedGraph<K, V> {
 	private Bag<Edge<K>>[] adj;
 	
 	/**
-	 * Arreglo de vértices
+	 * Arreglo de vÃ©rtices
 	 */
 	private Vertex<K, V>[] vertices;
 	
@@ -34,7 +35,7 @@ public class EdgeWeightedGraph<K, V> {
 	@SuppressWarnings("unchecked")
 	public EdgeWeightedGraph( int V ) throws IllegalArgumentException{
 		if( V <= 0 )
-			throw new IllegalArgumentException("La capacidad inicial debe ser un número positivo");
+			throw new IllegalArgumentException("La capacidad inicial debe ser un nÃºmero positivo");
 		this.V = 0;
 		E = 0;
 		capacity = V;
@@ -47,15 +48,15 @@ public class EdgeWeightedGraph<K, V> {
 	}
 	
 	/**
-	 * @param key llave del vértice 
-	 * @return Iterable de ejes que salen del vértice de llave key.
+	 * @param key llave del vÃ©rtice 
+	 * @return Iterable de ejes que salen del vÃ©rtice de llave key.
 	 */
 	public Iterable<Edge<K>> adj( K key ){
 		return adj[positionOf(key)];
 	}
 	
 	/**
-	 * @return true si no tiene vértices, false de lo contrario
+	 * @return true si no tiene vÃ©rtices, false de lo contrario
 	 */
 	public boolean isEmpty(){
 		return V == 0;
@@ -74,8 +75,8 @@ public class EdgeWeightedGraph<K, V> {
 	}
 
 	/**
-	 * @param key llave del vértice
-	 * @return true si el grafo contien el vértice de llave K, false de lo contrario
+	 * @param key llave del vÃ©rtice
+	 * @return true si el grafo contien el vÃ©rtice de llave K, false de lo contrario
 	 */
 	public boolean containsVertex( K key ){
 		if( !isEmpty() ){
@@ -90,7 +91,7 @@ public class EdgeWeightedGraph<K, V> {
 	}
 	
 	/**
-	 * @param edge eje que se quiere comprobar si esá en el grafo
+	 * @param edge eje que se quiere comprobar si esÃ¡ en el grafo
 	 * @return treu si el eje existe en el grafo, false de lo contrario
 	 */
 	public boolean containsEdge( Edge<K> edge ){
@@ -118,10 +119,10 @@ public class EdgeWeightedGraph<K, V> {
 	
 
 	/**
-	 * Agrega un eje entre dos vértices
-	 * @param v llave del vértice origen
-	 * @param w llave del vértice destino
-	 * @param weight peso del vértice
+	 * Agrega un eje entre dos vÃ©rtices
+	 * @param v llave del vÃ©rtice origen
+	 * @param w llave del vÃ©rtice destino
+	 * @param weight peso del vÃ©rtice
 	 */
 	public void addEdge( K v, K w, double weight ) throws IllegalStateException{
 		Edge<K> toAdd = new Edge<K>(v, w, weight);
@@ -132,14 +133,14 @@ public class EdgeWeightedGraph<K, V> {
 			E++;
 		}
 		else{
-			throw new IllegalStateException( "El eje " + toAdd + " ya está en el grafo" );
+			throw new IllegalStateException( "El eje " + toAdd + " ya estÃ¡ en el grafo" );
 		}
 	}
 	
 	/**
-	 * Agrega un nuevo vértice al grafo
-	 * @param id llave del vértice
-	 * @param info información del vértice
+	 * Agrega un nuevo vÃ©rtice al grafo
+	 * @param id llave del vÃ©rtice
+	 * @param info informaciÃ³n del vÃ©rtice
 	 */
 	public void addVertex(K id, V info) {
 		if( V + 1 <= capacity ){
@@ -160,9 +161,9 @@ public class EdgeWeightedGraph<K, V> {
 	
 	/**
 	 * Elimina un eje
-	 * @param fromV llave del vértice origen
-	 * @param toV llave del vértice destino
-	 * @param weight peso del vértice
+	 * @param fromV llave del vÃ©rtice origen
+	 * @param toV llave del vÃ©rtice destino
+	 * @param weight peso del vÃ©rtice
 	 */
 	public void deleteEdge( Edge<K> edge ) throws NoSuchElementException{
 		try{
@@ -176,9 +177,9 @@ public class EdgeWeightedGraph<K, V> {
 
 	/**
 	 * Elimina un eje
-	 * @param fromV llave del vértice origen
-	 * @param toV llave del vértice destino
-	 * @param weight peso del vértice
+	 * @param fromV llave del vÃ©rtice origen
+	 * @param toV llave del vÃ©rtice destino
+	 * @param weight peso del vÃ©rtice
 	 */
 	public void deleteEdge( K fromV, K toV, double weight ) throws NoSuchElementException{
 		deleteEdge(new Edge<K>(fromV, toV, weight));
@@ -186,9 +187,9 @@ public class EdgeWeightedGraph<K, V> {
 
 
 	/**
-	 * Elimina un vértice del grafo
-	 * @param id llave del vértice
-	 * @param info información del vértice
+	 * Elimina un vÃ©rtice del grafo
+	 * @param id llave del vÃ©rtice
+	 * @param info informaciÃ³n del vÃ©rtice
 	 */
 	public void deleteVertex(K id) throws NoSuchElementException{
 		if( containsVertex(id) ){
@@ -210,7 +211,7 @@ public class EdgeWeightedGraph<K, V> {
 			V--;
 		}
 		else{
-			throw new NoSuchElementException("El vértice no se encuentra en el grafo");
+			throw new NoSuchElementException("El vÃ©rtice no se encuentra en el grafo");
 		}
 		if( V - 1 < capacity / 2 ){
 			resize(capacity /2);
@@ -238,7 +239,7 @@ public class EdgeWeightedGraph<K, V> {
 	}
 	
 	/**
-	 * @return iterable con todos los vértices del grafo
+	 * @return iterable con todos los vÃ©rtices del grafo
 	 */
 	public Iterable<Vertex<K, V>> vertices(){
 		Queue<Vertex<K, V>> ans = new Queue<>();
@@ -250,8 +251,8 @@ public class EdgeWeightedGraph<K, V> {
 	}
 	
 	/**
-	 * Aumenta el tamaño de los arreglos a la nueva capacidad, para que el grafo pueda tener más vértices
-	 * @param newSize Nuevo tamaño de los arreglos
+	 * Aumenta el tamaÃ±o de los arreglos a la nueva capacidad, para que el grafo pueda tener mÃ¡s vÃ©rtices
+	 * @param newSize Nuevo tamaÃ±o de los arreglos
 	 */
 	@SuppressWarnings("unchecked")
 	private void resize( int newSize ){
@@ -267,17 +268,17 @@ public class EdgeWeightedGraph<K, V> {
 	}
 	
 	/**
-	 * Método para saber la posición en el arreglo de un vértice co llave K
-	 * @param key llave del vértice 
-	 * @return posición del vértice en el arreglo 
-	 * @throws NoSuchElementException si el vértice no se encuentra (no debería lanzarce nunca)
+	 * MÃ©todo para saber la posiciÃ³n en el arreglo de un vÃ©rtice co llave K
+	 * @param key llave del vÃ©rtice 
+	 * @return posiciÃ³n del vÃ©rtice en el arreglo 
+	 * @throws NoSuchElementException si el vÃ©rtice no se encuentra (no deberÃ­a lanzarce nunca)
 	 */
 	private int positionOf( K key ) throws NoSuchElementException{
 		for( int i = 0; i < vertices.length; i++ ){
 			if( vertices[i].getKey().equals(key) )
 				return i;
 		}
-		throw new NoSuchElementException( "El vértice con la llave " + key + " no se encuentra en el grafo" );
+		throw new NoSuchElementException( "El vÃ©rtice con la llave " + key + " no se encuentra en el grafo" );
 	}
 	
 	/**

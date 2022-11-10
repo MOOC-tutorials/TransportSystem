@@ -167,8 +167,8 @@ public class ShortestPath<K,V> {
 	    
 
 		/**
-		 * Copia los v�rtices del grafo en el arreglo v�rtices
-		 * @param graph Grafo del cual se quieren copiar los v�rtices
+		 * Copia los vï¿½rtices del grafo en el arreglo vï¿½rtices
+		 * @param graph Grafo del cual se quieren copiar los vï¿½rtices
 		 */
 		private void copyVertices( DirectedGraph<K, V> graph ){
 			int index = 0;
@@ -179,10 +179,10 @@ public class ShortestPath<K,V> {
 		}
 
 		/**
-		 * Indica la posici�n de la informaci�n del v�rtice en marked, edgeTo, distTo de acuerdo a vertices
-		 * @param vertex v�rtice del cual se quiere saber su posici�n
-		 * @return posici�n de la informaci�n del v�rtice en todos los arreglos
-		 * @throws NoSuchElementException si no encuentra el v�rtice, nunca deber�a lanzar excepci�n
+		 * Indica la posiciï¿½n de la informaciï¿½n del vï¿½rtice en marked, edgeTo, distTo de acuerdo a vertices
+		 * @param vertex vï¿½rtice del cual se quiere saber su posiciï¿½n
+		 * @return posiciï¿½n de la informaciï¿½n del vï¿½rtice en todos los arreglos
+		 * @throws NoSuchElementException si no encuentra el vï¿½rtice, nunca deberï¿½a lanzar excepciï¿½n
 		 */
 		private int positionOf( Vertex<K, V> vertex ) throws NoSuchElementException{
 			K key = vertex.getKey();
@@ -190,6 +190,6 @@ public class ShortestPath<K,V> {
 				if( vertices[i].getKey().equals(key) )
 					return i;
 			}
-			throw new NoSuchElementException( "El v�rtice no fue encontrado" ); 
+			throw new NoSuchElementException( "El vï¿½rtice no fue encontrado" ); 
 		}
 }

@@ -6,6 +6,6 @@ public class DateNotFoundExpection extends Exception
 	
 	public DateNotFoundExpection()
 	{
-		super("La fecha no es v·lida");
+		super("La fecha no es v√°lida");
 	}
 }

@@ -1,17 +1,17 @@
 package model.data_structures;
 /**
  * Clase que representa un eje con peso de un grafo no dirigido
- * Implementaci�n basada en: https://algs4.cs.princeton.edu/43mst/Edge.java.html
+ * Implementaciï¿½n basada en: https://algs4.cs.princeton.edu/43mst/Edge.java.html
  */
 public class Edge<K> implements Comparable<Edge<K>> {
 
 	/**
-	 * Uno de los v�rtices que conecta el eje
+	 * Uno de los vï¿½rtices que conecta el eje
 	 */
 	private final K v;
 	
 	/**
-	 * El otro de los v�rtices que conecta el eje
+	 * El otro de los vï¿½rtices que conecta el eje
 	 */
 	private final K w;
 	
@@ -22,8 +22,8 @@ public class Edge<K> implements Comparable<Edge<K>> {
 	
 	/**
 	 * crea un nuevo eje
-	 * @param v v�rtice que conecta el eje
-	 * @param w v�rtice que conecta el eje
+	 * @param v vï¿½rtice que conecta el eje
+	 * @param w vï¿½rtice que conecta el eje
 	 * @param weight peso del eje
 	 */
 	public Edge( K v, K w, double weight ){
@@ -40,16 +40,16 @@ public class Edge<K> implements Comparable<Edge<K>> {
 	}
 	
 	/**
-	 * @return uno de los v�rtices que conecta el eje
+	 * @return uno de los vï¿½rtices que conecta el eje
 	 */
 	public K either(){
 		return v;
 	}
 	
 	/**
-	 * @param vertex v�rtice opuesto al que se quiere obtener
-	 * @return v�rtice opueseto a vertex
-	 * @throws IllegalArgumentException si el v�rtice no es ninguno de los que conecta el eje
+	 * @param vertex vï¿½rtice opuesto al que se quiere obtener
+	 * @return vï¿½rtice opueseto a vertex
+	 * @throws IllegalArgumentException si el vï¿½rtice no es ninguno de los que conecta el eje
 	 */
 	public K other( K vertex ) throws IllegalArgumentException{
 		if( vertex == w ) 
@@ -57,7 +57,7 @@ public class Edge<K> implements Comparable<Edge<K>> {
 		else if( vertex == v ) 
 			return w;
 		else 
-			throw new IllegalArgumentException( "V�rtice no v�lido" );
+			throw new IllegalArgumentException( "Vï¿½rtice no vï¿½lido" );
 	}
 	
 	/**
@@ -70,7 +70,7 @@ public class Edge<K> implements Comparable<Edge<K>> {
 	}
 	
 	/**
-	 * @return representaci�n en String del eje
+	 * @return representaciï¿½n en String del eje
 	 */
 	public String toString(){
 		return v + "-" + w + ", " + weight;

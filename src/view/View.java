@@ -116,7 +116,7 @@ public class View {
 				String stopId6 = sc.next();
 				Queue<VOStopTimeRuta> llegadas = Controller.darItinerarioLLegada(stopId6);
 				for (VOStopTimeRuta voStopTime : llegadas) {
-					System.out.println("Información de la parada");
+					System.out.println("InformaciÃ³n de la parada");
 					System.out.println(voStopTime);
 				}
 				break;
@@ -127,7 +127,7 @@ public class View {
 				String stopId7 = sc.next();
 				Queue<VO33> salidas = Controller.itinerarioSalida33(stopId7);
 				for (VO33 voStopTime : salidas) {
-					System.out.println("Información de la parada");
+					System.out.println("InformaciÃ³n de la parada");
 					System.out.println(voStopTime);
 				}
 				break;
@@ -178,7 +178,7 @@ public class View {
 
 			// 3.8
 			case 12:
-				System.out.println("Ingrese la hora de inicio para la b�squeda en formaro HH:MM");
+				System.out.println("Ingrese la hora de inicio para la bï¿½squeda en formaro HH:MM");
 				String horaInicio12 = sc.next();
 				
 				System.out.println(Controller.darInformacionParadasEnCicloMasGrande(horaInicio12));
@@ -186,7 +186,7 @@ public class View {
 
             // 3.9
 			case 13:
-				System.out.println("Ingrese la hora de inicio para la b�squeda");
+				System.out.println("Ingrese la hora de inicio para la bï¿½squeda");
 				String horaInicio13	 = sc.next();
 				MST<Integer, Integer> arbol = Controller.mst39(horaInicio13);
 				System.out.println(arbol.edges());
@@ -206,7 +206,7 @@ public class View {
 	private static void printMenu() {
 		System.out.println("---------ISIS 1206 - Estructuras de datos----------");
 		System.out.println("---------------------Proyecto 3----------------------");
-		System.out.println("1. Cargar la informaci�n est�tica necesaria para la operaci�n del sistema");
+		System.out.println("1. Cargar la informaciï¿½n estï¿½tica necesaria para la operaciï¿½n del sistema");
 		System.out.println("2. Dar las paradas alcanzables desde una parada (1)");
 		System.out.println(
 				"3. Dar componentes fuertemente conexas en el grafo de paradas (2)");
@@ -218,18 +218,18 @@ public class View {
 		System.out.println(
 				"7.Dar el itinerario de salida de una parada(3,3)");
 		System.out.println(
-				"8. Dar la parada m�s congestionada (con m�s viajes de llegada y de salida) del subgrafo(3,4)");
+				"8. Dar la parada mï¿½s congestionada (con mï¿½s viajes de llegada y de salida) del subgrafo(3,4)");
 		System.out.println(
-				"9. Dar el camino m�s corto (de menor distancia) entre dos paradas(3,5)");
+				"9. Dar el camino mï¿½s corto (de menor distancia) entre dos paradas(3,5)");
 		System.out.println(
 				"10. Dar el camino de menor tiempo entre dos paradas(3,6)");
 		System.out.println(
 				"11. Dar la mayor componente conexa del subgrafo(3,7)");
 		System.out.println("12. Dar un ciclo simple del subgrafo(3,8)");
 		System.out.println(
-				"13. Dar el �rbol de recubrimiento m�nimo del grafo simplicado(3,9)");
+				"13. Dar el ï¿½rbol de recubrimiento mï¿½nimo del grafo simplicado(3,9)");
 		System.out.println("14. Salir.\n");
-		System.out.println("Ingrese la opci�n deseada y luego presione enter: (e.g., 1):");
+		System.out.println("Ingrese la opciï¿½n deseada y luego presione enter: (e.g., 1):");
 
 	}
 }

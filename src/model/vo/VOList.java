@@ -3,7 +3,7 @@ package model.vo;
 import model.data_structures.Bag;
 
 /**
- * Clase para agilizar las búsquedas de varios elementos en las tablas de hash.
+ * Clase para agilizar las bÃºsquedas de varios elementos en las tablas de hash.
  * @param <T>
  */
 public class VOList<T extends Comparable<T>> {

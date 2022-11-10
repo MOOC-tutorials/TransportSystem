@@ -42,7 +42,7 @@ import model.vo.VOTrip;
 public class Manager implements IManager{
 
 	/**
-	 * Hash con los viajes, luego se usarï¿½ para crear el grafo
+	 * Hash con los viajes, luego se usarÃ¯Â¿Â½ para crear el grafo
 	 */
 	private DoubleLinkedList<VOTrip> tripsDLL;
 
@@ -57,17 +57,17 @@ public class Manager implements IManager{
 
 
 	/**
-	 * Hash con los tiempos de llegada, luego se usarï¿½ para crear el grafo
+	 * Hash con los tiempos de llegada, luego se usarÃ¯Â¿Â½ para crear el grafo
 	 */
 	private SeparateChainingHash<Integer, VOList<VOStopTime>> stopTimesHash;
 
 	/**
-	 * Ã¡rbol con los calendar dates 
+	 * ÃƒÂ¡rbol con los calendar dates 
 	 */
 	private RedBlackBST<Integer, VOCalendar> calendarBST;
 
 	/**
-	 * Grafo con las paradas. Id de cada parada en la llave y ï¿½rbol rojo-negro con todos los stopTimes con el arrival time como llave 
+	 * Grafo con las paradas. Id de cada parada en la llave y Ã¯Â¿Â½rbol rojo-negro con todos los stopTimes con el arrival time como llave 
 	 */
 	private DirectedGraph<Integer, RedBlackBST<Integer, VOStopTimeRuta>> stopsGraph;
 
@@ -91,7 +91,7 @@ public class Manager implements IManager{
 	}	
 
 	/**
-	 * Carga la informaciï¿½n a los hashes
+	 * Carga la informaciÃ¯Â¿Â½n a los hashes
 	 */
 
 	public void cargarGTFS() {
@@ -236,8 +236,8 @@ public class Manager implements IManager{
 	}
 
 	/**
-	 * Carga la informaciï¿½n de los viajes desde un archivo csv en una tabla de hash.
-	 * @param pRuta ruta del archivo con la informaciï¿½n.
+	 * Carga la informaciÃ¯Â¿Â½n de los viajes desde un archivo csv en una tabla de hash.
+	 * @param pRuta ruta del archivo con la informaciÃ¯Â¿Â½n.
 	 */
 	public void cargarViajes( String pRuta ){
 		try{
@@ -260,8 +260,8 @@ public class Manager implements IManager{
 	}
 
 	/**
-	 * Carga la informaciï¿½n de los viajes desde un archivo csv una tabla de has (separate chainig).
-	 * @param pRuta ruta del archivo con la informaciï¿½n.
+	 * Carga la informaciÃ¯Â¿Â½n de los viajes desde un archivo csv una tabla de has (separate chainig).
+	 * @param pRuta ruta del archivo con la informaciÃ¯Â¿Â½n.
 	 */
 	public void cargarStopTimes(String pRuta){
 		try {
@@ -311,7 +311,7 @@ public class Manager implements IManager{
 
 
 	/**
-	 * Crea el grafo con el nï¿½mero de paradas indicado en el atributo.
+	 * Crea el grafo con el nÃ¯Â¿Â½mero de paradas indicado en el atributo.
 	 */
 
 	public void crearGrafo(){
@@ -330,20 +330,20 @@ public class Manager implements IManager{
 						int hora = horaAInt(currentStopTime.getArrivalTime()); 
 						//Convierte la hora del stoptime en un entero: 20:15 = 2015
 						if( stopsGraph.containsVertex(currentStopTime.getStopId()) ){
-							//Si el grafo ya tiene la parada, le agrega el stopTimeRuta a su ï¿½rbol de StopTimes
+							//Si el grafo ya tiene la parada, le agrega el stopTimeRuta a su Ã¯Â¿Â½rbol de StopTimes
 							stopsGraph.getVertex(currentStopTime.getStopId()).getValue().put(hora, newST);
 						}
 						else{
-							//De lo contrario, crea un nuevo ï¿½rbol con la hora de llegada como key
+							//De lo contrario, crea un nuevo Ã¯Â¿Â½rbol con la hora de llegada como key
 							RedBlackBST<Integer, VOStopTimeRuta> bst = new RedBlackBST<>();
-							bst.put(hora, newST); //Agrega el stopTime al ï¿½rbol
-							stopsGraph.addVertex(currentStopTime.getStopId(), bst); //Y agrega el nuevo vï¿½rtice
+							bst.put(hora, newST); //Agrega el stopTime al Ã¯Â¿Â½rbol
+							stopsGraph.addVertex(currentStopTime.getStopId(), bst); //Y agrega el nuevo vÃ¯Â¿Â½rtice
 						}
 					}
 					VOStopTime st1 = orderedBySequence.delMax(); //Primer tiempo de parada del viaje
-					while( !orderedBySequence.isEmpty() ){ //Mientras la pq no estï¿½ vacï¿½a
+					while( !orderedBySequence.isEmpty() ){ //Mientras la pq no estÃ¯Â¿Â½ vacÃ¯Â¿Â½a
 						VOStopTime st2 = orderedBySequence.delMax(); //Siguiente tiempo de parada del viaje
-						//Agrega el vï¿½rtice entre los tiempos de parada, si ya existe no se agrega
+						//Agrega el vÃ¯Â¿Â½rtice entre los tiempos de parada, si ya existe no se agrega
 						try{
 							stopsGraph.addEdge(st1.getStopId(), st2.getStopId(), currentTrip.getRouteId());
 						}catch (IllegalStateException e){
@@ -358,7 +358,7 @@ public class Manager implements IManager{
 		//		routesHash = new SeparateChainingHash<>();
 		//		stopTimesHash = new SeparateChainingHash<>();
 		//		calendarBST = new RedBlackBST<>();
-		System.out.println("Vï¿½rtices: " + stopsGraph.V() + " Ejes: " + stopsGraph.E());
+		System.out.println("VÃ¯Â¿Â½rtices: " + stopsGraph.V() + " Ejes: " + stopsGraph.E());
 	}
 
 	/**
@@ -559,8 +559,8 @@ public class Manager implements IManager{
 	/**
 	 * Metodo 3,2
 	 * Consultar el itinerario de llegada de buses a una parada en el subgrafo. La respuesta debe incluir las rutas, sus viajes y 
-	 * el horario de cada viaje llegando a la parada. La información debe mostrarse ordenada ascendentemente por el tiempo de llegada.
-	 * @param pStopid da la informacÃ³n del itinerario de llegada de una parada del subgrafo 
+	 * el horario de cada viaje llegando a la parada. La informacioÌn debe mostrarse ordenada ascendentemente por el tiempo de llegada.
+	 * @param pStopid da la informacÃƒÂ³n del itinerario de llegada de una parada del subgrafo 
 	 * @return
 	 */
 	public Queue<VOStopTimeRuta> darItinerarioLLegada(String pStopId) {
@@ -593,8 +593,8 @@ public class Manager implements IManager{
 
 
 	/**
-	 * Metodo 3,4 Consultar la informacioÌ�n de la parada maÌ�s congestionada (aquella tal que tenga la mayor cantidad de buses llegando y/o saliendo).
-	 * @return  la informacÃ³n de la parada mas congestionada 
+	 * Metodo 3,4 Consultar la informacioÃŒï¿½n de la parada maÃŒï¿½s congestionada (aquella tal que tenga la mayor cantidad de buses llegando y/o saliendo).
+	 * @return  la informacÃƒÂ³n de la parada mas congestionada 
 	 */
 	public DoubleLinkedList<VOStopTimeRuta> darInformacionParadaMasCongestionada() {
 		DoubleLinkedList<VOStopTimeRuta> answer = new DoubleLinkedList<>();
@@ -625,14 +625,14 @@ public class Manager implements IManager{
 		Vertex<Integer, RedBlackBST<Integer, VOStopTimeRuta>> origen = stopsSubGraph.getVertex( idO ); //Parada de origen
 		Queue<Integer> horariosSalida = origen.getValue().valuesInRange(horaS, origen.getValue().max()); //Horarios de la parada de origen desde la hora de salida
 		if( horariosSalida.isEmpty() ){ 
-			//Lanza excepción si no hay horarios en el rango
-			throw new NoSuchElementException( "No se han encontrado viajes a partir de la parada " + idOrigen + " después de la hora " + horaSalida );
+			//Lanza excepciÃ³n si no hay horarios en el rango
+			throw new NoSuchElementException( "No se han encontrado viajes a partir de la parada " + idOrigen + " despuÃ©s de la hora " + horaSalida );
 		}
 		else{
 			Vertex<Integer, RedBlackBST<Integer, VOStopTimeRuta>> destino = stopsSubGraph.getVertex(idD); //Parada de destino
 			BFSPaths<Integer, RedBlackBST<Integer, VOStopTimeRuta>> paths = new BFSPaths<>(stopsSubGraph, origen); //BFS sobre origen
 			if( paths.hasPathTo(destino) ){ //Si tiene un camino hacia destino
-				int horaSalidaReal = horariosSalida.dequeue(); //Menor hora posible después de horaSalida
+				int horaSalidaReal = horariosSalida.dequeue(); //Menor hora posible despuÃ©s de horaSalida
 				Queue<Integer> horariosLlegada = destino.getValue().valuesInRange(horaSalidaReal, destino.getValue().max()); //Horarios de destino desde hora de salida real
 				VOStopTimeRuta stopTimeSalida = origen.getValue().get(horaSalidaReal); //StopTime con llave HoraSalidaReal
 				int routeIdSalida = stopTimeSalida.getRouteId(); //Ruta de salida 
@@ -677,11 +677,11 @@ public class Manager implements IManager{
 					VO36 ans = new VO36(paths.pathTo(destino), horaSalidaReal, routeIdSalida, routeIdLlegada, tripIdSalida, tripIdLlegada, tiemptotal); //Respuesta
 					return ans;
 				}
-				else{ //Lanza execpción si el stopTime de llegaada es null (no debería ocurrir, lanza la exepción del camino antes)
+				else{ //Lanza execpciÃ³n si el stopTime de llegaada es null (no deberÃ­a ocurrir, lanza la exepciÃ³n del camino antes)
 					throw new NoSuchElementException( "No es posible llegar a la parada" );
 				}
 			}
-			else{ //Lanza excepción si no hay camino desde origen a destino
+			else{ //Lanza excepciÃ³n si no hay camino desde origen a destino
 				throw new NoSuchElementException( "No se ha encontrado un camino para llegar a la parada" );
 			}
 		}
@@ -695,7 +695,7 @@ public class Manager implements IManager{
 		MaxPriorityQueue<Stack<Vertex<Integer, RedBlackBST<Integer, VOStopTimeRuta>>>> longestCycles = cycles.longestCycles();  //Obtiene los ciclos
 
 		while( !longestCycles.isEmpty() ){ //Si hay ciclos
-			Stack<Vertex<Integer, RedBlackBST<Integer, VOStopTimeRuta>>> cicloActual = longestCycles.delMax(); //Ciclo más grande
+			Stack<Vertex<Integer, RedBlackBST<Integer, VOStopTimeRuta>>> cicloActual = longestCycles.delMax(); //Ciclo mÃ¡s grande
 			if( cicloActual.peek().getElement().getValue().min() < hora ) //Comprueba la hora inicial
 				for( Vertex<Integer, RedBlackBST<Integer, VOStopTimeRuta>> currentStop : cicloActual){
 					ciclo.agregarParada(currentStop); //Agrega las paradas del ciclo a la respuesta
@@ -880,14 +880,14 @@ public class Manager implements IManager{
 		Vertex<Integer, RedBlackBST<Integer, VOStopTimeRuta>> origen = stopsSubGraph.getVertex( idO ); //Parada de origen
 		Queue<Integer> horariosSalida = origen.getValue().valuesInRange(horaS, origen.getValue().max()); //Horarios de la parada de origen desde la hora de salida
 		if( horariosSalida.isEmpty() ){ 
-			//Lanza excepción si no hay horarios en el rango
-			throw new NoSuchElementException( "No se han encontrado viajes a partir de la parada " + idOrigen + " después de la hora " + horaSalida );
+			//Lanza excepciÃ³n si no hay horarios en el rango
+			throw new NoSuchElementException( "No se han encontrado viajes a partir de la parada " + idOrigen + " despuÃ©s de la hora " + horaSalida );
 		}
 		else{
 			Vertex<Integer, RedBlackBST<Integer, VOStopTimeRuta>> destino = stopsSubGraph.getVertex(idD); //Parada de destino
 			BFSPaths<Integer, RedBlackBST<Integer, VOStopTimeRuta>> paths = new BFSPaths<>(stopsSubGraph, origen); //BFS sobre origen
 			if( paths.hasPathTo(destino) ){ //Si tiene un camino hacia destino
-				int horaSalidaReal = horariosSalida.dequeue(); //Menor hora posible después de horaSalida
+				int horaSalidaReal = horariosSalida.dequeue(); //Menor hora posible despuÃ©s de horaSalida
 				Queue<Integer> horariosLlegada = destino.getValue().valuesInRange(horaSalidaReal, destino.getValue().max()); //Horarios de destino desde hora de salida real
 				VOStopTimeRuta stopTimeSalida = origen.getValue().get(horaSalidaReal); //StopTime con llave HoraSalidaReal
 				int routeIdSalida = stopTimeSalida.getRouteId(); //Ruta de salida 
@@ -908,11 +908,11 @@ public class Manager implements IManager{
 					VOCamino35 ans = new VOCamino35(paths.pathTo(destino), horaSalidaReal, routeIdSalida, routeIdLlegada, tripIdSalida, tripIdLlegada); //Respuesta
 					return ans;
 				}
-				else{ //Lanza execpción si el stopTime de llegaada es null (no debería ocurrir, lanza la exepción del camino antes)
+				else{ //Lanza execpciÃ³n si el stopTime de llegaada es null (no deberÃ­a ocurrir, lanza la exepciÃ³n del camino antes)
 					throw new NoSuchElementException( "No es posible llegar a la parada" );
 				}
 			}
-			else{ //Lanza excepción si no hay camino desde origen a destino
+			else{ //Lanza excepciÃ³n si no hay camino desde origen a destino
 				throw new NoSuchElementException( "No se ha encontrado un camino para llegar a la parada" );
 			}
 		}
@@ -939,11 +939,11 @@ public class Manager implements IManager{
 		}
 
 		Queue<Integer> mayor = sccQueue.peek();
-		int mayorTamaño = mayor.getSize();
+		int mayorTamanioo = mayor.getSize();
 		for ( Queue<Integer> currentQueue:  sccQueue) {
-			if (currentQueue.getSize() > mayorTamaño) {
+			if (currentQueue.getSize() > mayorTamanioo) {
 				mayor = currentQueue;
-				mayorTamaño = currentQueue.getSize();
+				mayorTamanioo = currentQueue.getSize();
 			}
 
 		}
@@ -953,13 +953,13 @@ public class Manager implements IManager{
 	@Override
 	public MST<Integer, Integer> mst39( String horaInicio ) {
 		int horaInicial = horaAInt(horaInicio);
-		Parejas39<Integer, RedBlackBST<Integer, VOStopTimeRuta>> parejas = new Parejas39<>(stopsSubGraph); //Encuentra las parejas de vértices tales que se puede ir de uno al otro y volver
+		Parejas39<Integer, RedBlackBST<Integer, VOStopTimeRuta>> parejas = new Parejas39<>(stopsSubGraph); //Encuentra las parejas de vÃ©rtices tales que se puede ir de uno al otro y volver
 		EdgeWeightedGraph<Integer, Integer> graph = new EdgeWeightedGraph<>(parejas.contador()); //Crea el grafo no dirido
 
-		for( Bag<Vertex<Integer, RedBlackBST<Integer, VOStopTimeRuta>>> parejaActual : parejas.parejas() ){ //Recorre las parejas de vértices
+		for( Bag<Vertex<Integer, RedBlackBST<Integer, VOStopTimeRuta>>> parejaActual : parejas.parejas() ){ //Recorre las parejas de vÃ©rtices
 			int count = 0; //Cuenta de tiempos
 			double time = 0; //Suma de tiempos
-			Vertex<Integer, RedBlackBST<Integer, VOStopTimeRuta>> v1 = parejaActual.getFirst(); //Prime vértice
+			Vertex<Integer, RedBlackBST<Integer, VOStopTimeRuta>> v1 = parejaActual.getFirst(); //Prime vÃ©rtice
 			for( Integer key : v1.getValue().keys() ){
 				if( key >= horaInicial){ //Comprueba la hora de la llave
 					VOStopTimeRuta currentStoptime = v1.getValue().get(key); //StopTime de la primera parada
@@ -993,10 +993,10 @@ public class Manager implements IManager{
 			time = (time)/count; //Promedio del tiempo 
 			int id1 = parejaActual.getFirst().getKey(); //StopId de la primera parada
 			int id2 = parejaActual.getLast().getKey(); //StopId de la segunda parada
-			graph.addVertex(id1, id1); //Agrega la primera parada (si ya está, reemplaza el valor lo cual no afecta al grafo)
+			graph.addVertex(id1, id1); //Agrega la primera parada (si ya estÃ¡, reemplaza el valor lo cual no afecta al grafo)
 			graph.addVertex(id2, id2); //Agrega la segunda parada
 			try{
-				graph.addEdge(id1, id2, time); //Agrega el vértice si no ha sido agregado anteriormente
+				graph.addEdge(id1, id2, time); //Agrega el vÃ©rtice si no ha sido agregado anteriormente
 			}
 			catch(IllegalStateException e){
 

@@ -5,7 +5,7 @@ import model.data_structures.DoubleLinkedList;
 import model.data_structures.RedBlackBST;
 
 /**
- * Clase con la informaciÛn de las fechas en las que se presta un servicio
+ * Clase con la informaci√≥n de las fechas en las que se presta un servicio
  */
 public class VOCalendar implements Comparable<VOCalendar>{
 
@@ -25,7 +25,7 @@ public class VOCalendar implements Comparable<VOCalendar>{
 	private boolean tuesday;
 
 	/**
-	 * Boolean que indica si hay servicio los miÈrcoles. 
+	 * Boolean que indica si hay servicio los mi√©rcoles. 
 	 */
 	private boolean wednesday;
 
@@ -41,7 +41,7 @@ public class VOCalendar implements Comparable<VOCalendar>{
 	private boolean friday;
 
 	/**
-	 * Boolean que indica si hay servicio los s·bados. 
+	 * Boolean que indica si hay servicio los s√°bados. 
 	 */
 	private boolean saturday;
 
@@ -62,7 +62,7 @@ public class VOCalendar implements Comparable<VOCalendar>{
 	private int endDate;
 
 	/**
-	 * InformaciÛn acerca de cada fecha.
+	 * Informaci√≥n acerca de cada fecha.
 	 */
 	private RedBlackBST<Integer, VOCalendarDate> calendarDatesBST;
 	

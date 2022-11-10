@@ -35,14 +35,14 @@ public class DirectedGraphTest extends TestCase {
 		try{
 			setup1();
 		}catch( IllegalArgumentException e){
-			fail( "No debería fallar" );
+			fail( "No deberÃ­a fallar" );
 		}
 	}
 
 	public void testDirectedGraphError(){
 		try{
 			graph = new DirectedGraph<>(-1);
-			fail( "Debería fallar" );
+			fail( "DeberÃ­a fallar" );
 		}catch (IllegalArgumentException e) {
 
 		}
@@ -51,8 +51,8 @@ public class DirectedGraphTest extends TestCase {
 	public void testContainsVertex(){
 		setup2();
 		for( int i = 0; i < graph.V(); i++ ){
-			assertTrue("El grafo no contiene el vértice", graph.containsVertex(i));
-			assertFalse("El grafo no debería contener el vértice", graph.containsVertex(i + 100000000));
+			assertTrue("El grafo no contiene el vÃ©rtice", graph.containsVertex(i));
+			assertFalse("El grafo no deberÃ­a contener el vÃ©rtice", graph.containsVertex(i + 100000000));
 		}
 	}
 	
@@ -64,19 +64,19 @@ public class DirectedGraphTest extends TestCase {
 			assertTrue( "El grafo no contiene el eje " + expectedEdge, graph.containsEdge(expectedEdge) );
 		}
 		expectedEdge = new DirectedEdge<Integer>(99, 0, 99.5);
-		assertFalse( "El grafo no debería contener el eje", graph.containsEdge(expectedEdge) );
+		assertFalse( "El grafo no deberÃ­a contener el eje", graph.containsEdge(expectedEdge) );
 	}
 
 	public void testAddVertex(){
 		setup1();
-		//Prueba que se agreguen los vértices
+		//Prueba que se agreguen los vÃ©rtices
 		for( int i = 0; i < graph.capacity(); i++ ){
 			graph.addVertex(i, i);
 		}
 		Integer currentKey = 0;
 		for( Vertex<Integer, Integer> currentVertex : graph.vertices()){
-			assertEquals("La llave del vértice no es la esperada", currentKey, currentVertex.getKey());
-			assertEquals("El valor del vértice no es el esperado", currentKey, currentVertex.getValue());
+			assertEquals("La llave del vÃ©rtice no es la esperada", currentKey, currentVertex.getKey());
+			assertEquals("El valor del vÃ©rtice no es el esperado", currentKey, currentVertex.getValue());
 			currentKey++;
 		}
 
@@ -89,8 +89,8 @@ public class DirectedGraphTest extends TestCase {
 		Integer currentKey2 = 0;
 		currentKey = 0;
 		for( Vertex<Integer, Integer> currentVertex : graph.vertices()){
-			assertEquals("La llave del vértice no es la esperada", currentKey, currentVertex.getKey());
-			assertEquals("El valor del vértice no es el esperado", currentKey2, currentVertex.getValue());
+			assertEquals("La llave del vÃ©rtice no es la esperada", currentKey, currentVertex.getKey());
+			assertEquals("El valor del vÃ©rtice no es el esperado", currentKey2, currentVertex.getValue());
 			currentKey2 += 100;
 			currentKey++;
 		}
@@ -102,8 +102,8 @@ public class DirectedGraphTest extends TestCase {
 		}
 		currentKey = 0;
 		for( Vertex<Integer, Integer> currentVertex : graph.vertices()){
-			assertEquals("La llave del vértice no es la esperada", currentKey, currentVertex.getKey());
-			assertEquals("El valor del vértice no es el esperado", currentKey, currentVertex.getValue());
+			assertEquals("La llave del vÃ©rtice no es la esperada", currentKey, currentVertex.getKey());
+			assertEquals("El valor del vÃ©rtice no es el esperado", currentKey, currentVertex.getValue());
 			currentKey++;
 		}
 	}
@@ -115,11 +115,11 @@ public class DirectedGraphTest extends TestCase {
 				graph.addEdge(i, i+1, i+0.5);
 			}
 		}catch (IllegalStateException e){
-			fail( "No debería lanzar excepción.");
+			fail( "No deberÃ­a lanzar excepciÃ³n.");
 		}
 		try{
 			graph.addEdge(1, 2, 1.5);
-			fail( "debería lanzar excepción");
+			fail( "deberÃ­a lanzar excepciÃ³n");
 		}catch (IllegalStateException e){
 
 		}
@@ -128,8 +128,8 @@ public class DirectedGraphTest extends TestCase {
 		Integer expectedToVKey = 1;
 		double expectedWeight = 0.5;
 		for( DirectedEdge<Integer> currentEdge : graph.edges() ){
-			assertEquals("La llave del vértice de origen no es la esperada", expectedFromVKey, currentEdge.fromV());
-			assertEquals("La llave del vértice de destino no es la esperada", expectedToVKey, currentEdge.toV());
+			assertEquals("La llave del vÃ©rtice de origen no es la esperada", expectedFromVKey, currentEdge.fromV());
+			assertEquals("La llave del vÃ©rtice de destino no es la esperada", expectedToVKey, currentEdge.toV());
 			assertEquals("El peso del eje no es el esperado", expectedWeight, currentEdge.weight());
 			expectedFromVKey++;
 			expectedToVKey++;
@@ -141,17 +141,17 @@ public class DirectedGraphTest extends TestCase {
 		setup3();
 		try{
 			graph.deleteVertex(500);;
-			fail( "Debería lanzar excepción" );
+			fail( "DeberÃ­a lanzar excepciÃ³n" );
 		}catch (NoSuchElementException e){
 
 		}
 		try{
 			for( int i = 99; i >= 0; i--){
 				graph.deleteVertex(i);
-				assertFalse("El grafo no debería tener el vértice", graph.containsVertex(i));
+				assertFalse("El grafo no deberÃ­a tener el vÃ©rtice", graph.containsVertex(i));
 			}
 		}catch (NoSuchElementException e){
-			fail("No debería lanzar excepción");
+			fail("No deberÃ­a lanzar excepciÃ³n");
 		}
 	}
 
@@ -159,7 +159,7 @@ public class DirectedGraphTest extends TestCase {
 		setup3();
 		try{
 			graph.deleteEdge( 500, 10, 10.5);;
-			fail( "Debería lanzar excepción" );
+			fail( "DeberÃ­a lanzar excepciÃ³n" );
 		}catch (NoSuchElementException e){
 
 		}
@@ -167,11 +167,11 @@ public class DirectedGraphTest extends TestCase {
 			for( DirectedEdge<Integer> currentEdge : graph.edges()){
 				graph.deleteEdge( currentEdge );
 				for( DirectedEdge<Integer> currentEdge2 : graph.edges()){
-					assertFalse( "El grafo debería contener el eje", currentEdge.equals(currentEdge2) );
+					assertFalse( "El grafo deberÃ­a contener el eje", currentEdge.equals(currentEdge2) );
 				}
 			}
 		}catch (NoSuchElementException e){
-			fail("No debería lanzar excepción");
+			fail("No deberÃ­a lanzar excepciÃ³n");
 		}
 	}
 
@@ -181,8 +181,8 @@ public class DirectedGraphTest extends TestCase {
 			Bag<DirectedEdge<Integer>> expectedDLL = new Bag<>();
 			expectedDLL.addAtEnd(new DirectedEdge<Integer>(i, i+1, i+0.5));
 			for( DirectedEdge<Integer> currentEdge : graph.adj(i)){
-				assertEquals( "Los vértices de origen no son iguales", currentEdge.fromV(), expectedDLL.getFirst().fromV());
-				assertEquals( "Los vértices de destino no son iguales", currentEdge.toV(), expectedDLL.getFirst().toV());
+				assertEquals( "Los vÃ©rtices de origen no son iguales", currentEdge.fromV(), expectedDLL.getFirst().fromV());
+				assertEquals( "Los vÃ©rtices de destino no son iguales", currentEdge.toV(), expectedDLL.getFirst().toV());
 				assertEquals( "Los pesos no son iguales", currentEdge.weight(), expectedDLL.getFirst().weight());
 			}
 		}
@@ -196,7 +196,7 @@ public class DirectedGraphTest extends TestCase {
 			}
 		}
 		for( Vertex<Integer, Integer> currentVertex : graph.vertices()){
-			assertEquals("El grado de salida del vértice " + currentVertex + " no es el esperado", graph.capacity(), graph.outdegree(currentVertex.getKey()));
+			assertEquals("El grado de salida del vÃ©rtice " + currentVertex + " no es el esperado", graph.capacity(), graph.outdegree(currentVertex.getKey()));
 		}
 	}
 
@@ -208,7 +208,7 @@ public class DirectedGraphTest extends TestCase {
 			}
 		}
 		for( Vertex<Integer, Integer> currentVertex : graph.vertices()){
-			assertEquals("El grado de entrada del vértice " + currentVertex + " no es el esperado", graph.capacity(), graph.indegree(currentVertex.getKey()));
+			assertEquals("El grado de entrada del vÃ©rtice " + currentVertex + " no es el esperado", graph.capacity(), graph.indegree(currentVertex.getKey()));
 		}
 	}
 	
@@ -236,8 +236,8 @@ public class DirectedGraphTest extends TestCase {
 		int currentPosition = 0;
 		for( DirectedEdge<Integer> currentEdge : graph.edges() ){
 			DirectedEdge<Integer> expectedEdge = expectedEdges.getElement(currentPosition);
-			assertEquals("El vértice de origen del eje no es el esperado", expectedEdge.fromV(), currentEdge.fromV());
-			assertEquals("El vértice de destino del eje no es el esperado", expectedEdge.toV(), currentEdge.toV());
+			assertEquals("El vÃ©rtice de origen del eje no es el esperado", expectedEdge.fromV(), currentEdge.fromV());
+			assertEquals("El vÃ©rtice de destino del eje no es el esperado", expectedEdge.toV(), currentEdge.toV());
 			assertEquals("El peso del eje no es el esperado", expectedEdge.weight(), currentEdge.weight());
 
 			currentPosition++;
@@ -252,8 +252,8 @@ public class DirectedGraphTest extends TestCase {
 		}
 		for( Vertex<Integer, Integer> currentVertex : graph.vertices() ){
 			Vertex<Integer, Integer> expectedVertex = expectedVertices.dequeue();
-			assertEquals("La llave del vértice no es la esperada", expectedVertex.getKey(), currentVertex.getKey());
-			assertEquals("El valor del vértice no es el esperado", expectedVertex.getValue(), currentVertex.getValue());
+			assertEquals("La llave del vÃ©rtice no es la esperada", expectedVertex.getKey(), currentVertex.getKey());
+			assertEquals("El valor del vÃ©rtice no es el esperado", expectedVertex.getValue(), currentVertex.getValue());
 		}
 	}
 }

@@ -23,15 +23,15 @@ public class RedBlackBSTTest extends TestCase {
 	}
 	
 	public void testSize(){
-		assertEquals("El tamaño no es el esperado", 0, bst.size());
+		assertEquals("El tamaÃ±o no es el esperado", 0, bst.size());
 		setup1();
-		assertEquals("El tamaño no es el esperado", 100, bst.size());
+		assertEquals("El tamaÃ±o no es el esperado", 100, bst.size());
 	}
 	
 	public void testIsEmpty(){
-		assertTrue("El árbol debería estar vacío", bst.isEmpty());
+		assertTrue("El Ã¡rbol deberÃ­a estar vacÃ­o", bst.isEmpty());
 		setup1();
-		assertFalse("El árbol no debería estar vacío", bst.isEmpty());
+		assertFalse("El Ã¡rbol no deberÃ­a estar vacÃ­o", bst.isEmpty());
 	}
 	
 	public void testGet(){
@@ -46,9 +46,9 @@ public class RedBlackBSTTest extends TestCase {
 	
 	public void testContains(){
 		setup2();
-		assertFalse("No debería contener el valor", bst.contains(100.5));
+		assertFalse("No deberÃ­a contener el valor", bst.contains(100.5));
 		for( int i = 0; i < 100; i++){
-			assertTrue("Debería contener el valor", bst.contains(i+0.5));
+			assertTrue("DeberÃ­a contener el valor", bst.contains(i+0.5));
 		}
 	}
 	
@@ -72,21 +72,21 @@ public class RedBlackBSTTest extends TestCase {
 		for( int i = 0; i < 100; i++){
 			Double toAdd = Math.random() * 100;
 			bst.put(toAdd, toAdd);
-			assertTrue("Debió agregar el nodo", bst.contains(toAdd));
+			assertTrue("DebiÃ³ agregar el nodo", bst.contains(toAdd));
 		}
 	}
 	
 	public void testHeight(){
 		setup1();
 		
-		// cálculo de log base 2 tomado de: https://stackoverflow.com/questions/3305059/how-do-you-calculate-log-base-2-in-java-for-integers
-		// Según "Algorithms, la altura de un árbol rojo-negro es como máximo 2log2(N)"
-		assertTrue("La altura del árbol no es la esperada", bst.height() < 2 * (Math.log(bst.size()) / Math.log(2)) );
+		// cÃ¡lculo de log base 2 tomado de: https://stackoverflow.com/questions/3305059/how-do-you-calculate-log-base-2-in-java-for-integers
+		// SegÃºn "Algorithms, la altura de un Ã¡rbol rojo-negro es como mÃ¡ximo 2log2(N)"
+		assertTrue("La altura del Ã¡rbol no es la esperada", bst.height() < 2 * (Math.log(bst.size()) / Math.log(2)) );
 	}
 	
 	public void testKeys(){
 		setup1();
 		Queue<Double> keys = bst.keys();
-		assertEquals("El tamaño no es el esperado", bst.size(), keys.getSize());
+		assertEquals("El tamaÃ±o no es el esperado", bst.size(), keys.getSize());
 	}
 }

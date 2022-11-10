@@ -13,12 +13,12 @@ import api.IDirectedGraph;
 public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 
 	/**
-	 * N�mero de v�rtices del grafo
+	 * Nï¿½mero de vï¿½rtices del grafo
 	 */
 	private int V;
 
 	/**
-	 * N�mero de ejes del grafo
+	 * Nï¿½mero de ejes del grafo
 	 */
 	private int E;
 
@@ -32,22 +32,22 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 	private Bag<DirectedEdge<K>>[] adj;
 
 	/**
-	 * Lista de v�rtices del grafo
+	 * Lista de vï¿½rtices del grafo
 	 */
 	private Vertex<K, V>[] vertices;
 
 	/**
-	 * Lista de n�meros de ejes de entrada por v�rtice
+	 * Lista de nï¿½meros de ejes de entrada por vï¿½rtice
 	 */
 	private int[] indegree;
 
 	/**
-	 * Crea un nuevo grafo con pesos dirigido con tama�o inicial
-	 * @param V n�mero inicial de v�rtices
+	 * Crea un nuevo grafo con pesos dirigido con tamaï¿½o inicial
+	 * @param V nï¿½mero inicial de vï¿½rtices
 	 */
 	@SuppressWarnings("unchecked")
 	public DirectedGraph( int V ) { 
-		if( V < 0 ) throw new IllegalArgumentException( "El n�mero de v�rtices del grafo debe ser mayor a 0.");
+		if( V < 0 ) throw new IllegalArgumentException( "El nï¿½mero de vï¿½rtices del grafo debe ser mayor a 0.");
 		this.V = 0;
 		this.E = 0;
 		capacity = V;
@@ -61,50 +61,50 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 	}	
 
 	/**
-	 * @return n�mero de v�rtices del grafo
+	 * @return nï¿½mero de vï¿½rtices del grafo
 	 */
 	public int V(){
 		return V;
 	}
 
 	/**
-	 * @return N�mero de ejes del grafo
+	 * @return Nï¿½mero de ejes del grafo
 	 */
 	public int E(){
 		return E;
 	}
 
 	/**
-	 * @return capacidad de v�rtices del grafo
+	 * @return capacidad de vï¿½rtices del grafo
 	 */
 	public int capacity(){
 		return capacity;
 	}
 
 	/**
-	 * @return true si no tiene v�rtices, false de lo contrario
+	 * @return true si no tiene vï¿½rtices, false de lo contrario
 	 */
 	public boolean isEmpty(){
 		return V == 0;
 	}
 
 	/**
-	 * M�todo para saber la posici�n en el arreglo de un v�rtice co llave K
-	 * @param key llave del v�rtice 
-	 * @return posici�n del v�rtice en el arreglo 
-	 * @throws NoSuchElementException si el v�rtice no se encuentra (no deber�a lanzarce nunca)
+	 * Mï¿½todo para saber la posiciï¿½n en el arreglo de un vï¿½rtice co llave K
+	 * @param key llave del vï¿½rtice 
+	 * @return posiciï¿½n del vï¿½rtice en el arreglo 
+	 * @throws NoSuchElementException si el vï¿½rtice no se encuentra (no deberï¿½a lanzarce nunca)
 	 */
 	private int positionOf( K key ) throws NoSuchElementException{
 		for( int i = 0; i < vertices.length; i++ ){
 			if( vertices[i].getKey().equals(key) )
 				return i;
 		}
-		throw new NoSuchElementException( "El v�rtice con la llave " + key + " no se encuentra en el grafo" );
+		throw new NoSuchElementException( "El vï¿½rtice con la llave " + key + " no se encuentra en el grafo" );
 	}
 
 	/**
-	 * @param key llave del v�rtice
-	 * @return true si el grafo contien el v�rtice de llave K, false de lo contrario
+	 * @param key llave del vï¿½rtice
+	 * @return true si el grafo contien el vï¿½rtice de llave K, false de lo contrario
 	 */
 	public boolean containsVertex( K key ){
 		if( !isEmpty() ){
@@ -119,7 +119,7 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 	}
 	
 	/**
-	 * @param edge eje que se quiere comprobar si es� en el grafo
+	 * @param edge eje que se quiere comprobar si esï¿½ en el grafo
 	 * @return treu si el eje existe en el grafo, false de lo contrario
 	 */
 	public boolean containsEdge( DirectedEdge<K> edge ){
@@ -133,9 +133,9 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 	}
 
 	/**
-	 * @param key llave del v�rtice que se quiere obtener
-	 * @return v�rtice con la llave K
-	 * @throws NoSuchElementException Si el v�rtice no se encuentra en el grafo
+	 * @param key llave del vï¿½rtice que se quiere obtener
+	 * @return vï¿½rtice con la llave K
+	 * @throws NoSuchElementException Si el vï¿½rtice no se encuentra en el grafo
 	 */
 	public Vertex<K, V> getVertex( K key ) throws NoSuchElementException{
 		for( Vertex<K, V> currentVertex : vertices ){
@@ -143,12 +143,12 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 				return currentVertex;
 			}
 		}
-		throw new NoSuchElementException("El v�rtice con la llave " + key + " no est� en el grafo");
+		throw new NoSuchElementException("El vï¿½rtice con la llave " + key + " no estï¿½ en el grafo");
 	}
 
 	/**
-	 * Aumenta el tama�o de los arreglos a la nueva capacidad, para que el grafo pueda tener m�s v�rtices
-	 * @param newSize Nuevo tama�o de los arreglos
+	 * Aumenta el tamaï¿½o de los arreglos a la nueva capacidad, para que el grafo pueda tener mï¿½s vï¿½rtices
+	 * @param newSize Nuevo tamaï¿½o de los arreglos
 	 */
 	@SuppressWarnings("unchecked")
 	private void resize( int newSize ){
@@ -167,10 +167,10 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 	}
 
 	/**
-	 * Agrega un eje entre dos v�rtices
-	 * @param fromV llave del v�rtice origen
-	 * @param toV llave del v�rtice destino
-	 * @param weight peso del v�rtice
+	 * Agrega un eje entre dos vï¿½rtices
+	 * @param fromV llave del vï¿½rtice origen
+	 * @param toV llave del vï¿½rtice destino
+	 * @param weight peso del vï¿½rtice
 	 */
 	public void addEdge( K fromV, K toV, double weight ) throws IllegalStateException{
 		DirectedEdge<K> toAdd = new DirectedEdge<K>(fromV, toV, weight);
@@ -180,14 +180,14 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 			E++;
 		}
 		else{
-			throw new IllegalStateException( "El eje " + toAdd + " ya est� en el grafo" );
+			throw new IllegalStateException( "El eje " + toAdd + " ya estï¿½ en el grafo" );
 		}
 	}
 
 	/**
-	 * Agrega un nuevo v�rtice al grafo
-	 * @param id llave del v�rtice
-	 * @param info informaci�n del v�rtice
+	 * Agrega un nuevo vï¿½rtice al grafo
+	 * @param id llave del vï¿½rtice
+	 * @param info informaciï¿½n del vï¿½rtice
 	 */
 	@Override
 	public void addVertex(K id, V info) {
@@ -209,24 +209,24 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 
 	/**
 	 * Elimina un eje
-	 * @param fromV llave del v�rtice origen
-	 * @param toV llave del v�rtice destino
-	 * @param weight peso del v�rtice
+	 * @param fromV llave del vï¿½rtice origen
+	 * @param toV llave del vï¿½rtice destino
+	 * @param weight peso del vï¿½rtice
 	 */
 	public void deleteEdge( DirectedEdge<K> edge ) throws NoSuchElementException{
 		try{
 			adj[positionOf(edge.fromV())].delete( edge );
 		}catch (NoSuchElementException e ){
-			throw new NoSuchElementException( "El v�rtice no existe" );
+			throw new NoSuchElementException( "El vï¿½rtice no existe" );
 		}
 		E--;
 	}
 
 	/**
 	 * Elimina un eje
-	 * @param fromV llave del v�rtice origen
-	 * @param toV llave del v�rtice destino
-	 * @param weight peso del v�rtice
+	 * @param fromV llave del vï¿½rtice origen
+	 * @param toV llave del vï¿½rtice destino
+	 * @param weight peso del vï¿½rtice
 	 */
 	public void deleteEdge( K fromV, K toV, double weight ) throws NoSuchElementException{
 		deleteEdge(new DirectedEdge<K>(fromV, toV, weight));
@@ -234,9 +234,9 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 
 
 	/**
-	 * Elimina un v�rtice del grafo
-	 * @param id llave del v�rtice
-	 * @param info informaci�n del v�rtice
+	 * Elimina un vï¿½rtice del grafo
+	 * @param id llave del vï¿½rtice
+	 * @param info informaciï¿½n del vï¿½rtice
 	 */
 	public void deleteVertex(K id) throws NoSuchElementException{
 		if( containsVertex(id) ){
@@ -256,7 +256,7 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 			V--;
 		}
 		else{
-			throw new NoSuchElementException("El v�rtice no se encuentra en el grafo");
+			throw new NoSuchElementException("El vï¿½rtice no se encuentra en el grafo");
 		}
 		if( V - 1 < capacity / 2 ){
 			resize(capacity /2);
@@ -264,32 +264,32 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 	}
 
 	/**
-	 * @param key llave del v�rtice 
-	 * @return Iterable de ejes que salen del v�rtice de llave key.
+	 * @param key llave del vï¿½rtice 
+	 * @return Iterable de ejes que salen del vï¿½rtice de llave key.
 	 */
 	public Iterable<DirectedEdge<K>> adj( K key ){
 		return adj[positionOf(key)];
 	}
 
 	/**
-	 * @param key llave del v�rtice
-	 * @return n�mero de ejes que salen del v�rtice
+	 * @param key llave del vï¿½rtice
+	 * @return nï¿½mero de ejes que salen del vï¿½rtice
 	 */
 	public int outdegree( K key ){
 		return adj[positionOf(key)].getSize();
 	}
 
 	/**
-	 * @param key llave del v�rtice
-	 * @return n�mero de ejes que llegan al v�rtice
+	 * @param key llave del vï¿½rtice
+	 * @return nï¿½mero de ejes que llegan al vï¿½rtice
 	 */
 	public int indegree( K key ){
 		return indegree[positionOf(key)];
 	}
 
 	/**
-	 * @param key llave del v�rtice
-	 * @return iterable con los ejes que llegan al v�rtice con llave key
+	 * @param key llave del vï¿½rtice
+	 * @return iterable con los ejes que llegan al vï¿½rtice con llave key
 	 */
 	public Iterable<DirectedEdge<K>> edgesTo( K key ){
 		Queue<DirectedEdge<K>> ans = new Queue<>();
@@ -304,9 +304,9 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 	}
 	
 	/**
-	 * retorna el n�mero de ejes que llegan al vertice con llave K
+	 * retorna el nï¿½mero de ejes que llegan al vertice con llave K
 	 * @param Key llave del vertice
-	 * @return el n�mero de ejes que llegan al vertice con llave K
+	 * @return el nï¿½mero de ejes que llegan al vertice con llave K
 	 */
 	
 	public int sizeOfEdgesTo(K Key){
@@ -319,9 +319,9 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 	}
 	
 	/**
-	 * retorna el n�mero de ejes que salen del vertice con llave K
+	 * retorna el nï¿½mero de ejes que salen del vertice con llave K
 	 * @param key llave del vertice
-	 * @return el n�mero de ejes que salen del vertice con llave K
+	 * @return el nï¿½mero de ejes que salen del vertice con llave K
 	 */
 	
 	public int sizeOfEdgesFrom (K key){
@@ -383,7 +383,7 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 	
 
 	/**
-	 * @return iterable con todos los v�rtices del grafo
+	 * @return iterable con todos los vï¿½rtices del grafo
 	 */
 	public Iterable<Vertex<K, V>> vertices(){
 		Queue<Vertex<K, V>> ans = new Queue<>();
@@ -413,11 +413,11 @@ public class DirectedGraph<K, V> implements IDirectedGraph<K, V> {
 	}
 
 	/**
-	 * Representaci�n del grafo como string
+	 * Representaciï¿½n del grafo como string
 	 */
 	public String toString(){
 		StringBuilder s = new StringBuilder();
-		s.append( V + " v�rtices, " + E + " ejes.\n");
+		s.append( V + " vï¿½rtices, " + E + " ejes.\n");
 		for( int i = 0; i < V; i++ ){
 			s.append( vertices[i] + ": ");
 			for( DirectedEdge<K> edge : adj[i] ){

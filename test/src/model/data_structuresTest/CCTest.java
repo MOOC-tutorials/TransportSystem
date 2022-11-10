@@ -15,7 +15,7 @@ public class CCTest extends TestCase {
 	
 	private int tamanioComponentes = 80;
 	
-	//Crea un grafo con un número de componentes conexos igual a módulo
+	//Crea un grafo con un nÃºmero de componentes conexos igual a mÃ³dulo
 	public void setup1(){
 		
 		graph = new DirectedGraph<>(modulo*tamanioComponentes);
@@ -40,11 +40,11 @@ public class CCTest extends TestCase {
 		try{
 			cc = new CC<>(graph);
 		}catch( Exception e){
-			fail( "No debería fallar" );
+			fail( "No deberÃ­a fallar" );
 		}
 		try{
 			cc = new CC<>(null);
-			fail( "Debería fallar" );
+			fail( "DeberÃ­a fallar" );
 		}catch( Exception e){
 			
 		}
@@ -54,7 +54,7 @@ public class CCTest extends TestCase {
 		setup1();
 		cc = new CC<>(graph);
 		for( Vertex<Integer, Integer> currentVertex : graph.vertices() ){
-			assertEquals("El vértice no está en el componente conexo esperado", currentVertex.getKey() % modulo, cc.id(currentVertex.getKey()));
+			assertEquals("El vÃ©rtice no estÃ¡ en el componente conexo esperado", currentVertex.getKey() % modulo, cc.id(currentVertex.getKey()));
 		}
 	}
 	
@@ -62,14 +62,14 @@ public class CCTest extends TestCase {
 		setup1();
 		cc = new CC<>(graph);
 		for( Vertex<Integer, Integer> currentVertex : graph.vertices() ){
-			assertEquals("El tamaño del componente conexo no es el esperado", tamanioComponentes, cc.size(currentVertex.getKey()));
+			assertEquals("El tamaÃ±o del componente conexo no es el esperado", tamanioComponentes, cc.size(currentVertex.getKey()));
 		}
 	}
 	
 	public void testCount(){
 		setup1();
 		cc = new CC<>(graph);
-		assertEquals("El número de componentes conexos no es el esperado",modulo, cc.count());
+		assertEquals("El nÃºmero de componentes conexos no es el esperado",modulo, cc.count());
 	}
 	
 	public void testConnected(){
@@ -81,7 +81,7 @@ public class CCTest extends TestCase {
 			for( Vertex<Integer, Integer> currentVertex2 : graph.vertices()){
 				int currentVertex2Modulo = currentVertex2.getKey() % modulo;
 				if( currentVertex2Modulo == currentVertexModulo && (!((currentVertex.getKey()).equals(currentVertex2.getKey())))){
-					assertTrue("Deberían estar conectados", cc.connected(currentVertex.getKey(), currentVertex2.getKey()));
+					assertTrue("DeberÃ­an estar conectados", cc.connected(currentVertex.getKey(), currentVertex2.getKey()));
 				}
 			}
 		}

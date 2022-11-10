@@ -21,10 +21,10 @@ public class VO1 {
 	}
 	
 	public String transbordo(){
-		return (transbordo == true)? "Sí": "No";
+		return (transbordo == true)? "SÃ­": "No";
 	}
 	
 	public String toString(){
-		return "Se llega desde: " + " Transbordo: " + ((transbordo == true)? "Sí": "No");
+		return "Se llega desde: " + " Transbordo: " + ((transbordo == true)? "SÃ­": "No");
 	}
 }

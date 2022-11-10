@@ -3,7 +3,7 @@ package model.vo;
 
 
 /**
- * Información de las transferencias entre rutas
+ * InformaciÃ³n de las transferencias entre rutas
  */
 public class VOTransfer implements Comparable<VOTransfer> {
 	/**

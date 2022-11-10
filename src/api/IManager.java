@@ -32,7 +32,7 @@ public interface IManager {
 	public void crearGrafo( );
 	
 	/**
-	 * M�todo para la primera parte del punto 1
+	 * Mï¿½todo para la primera parte del punto 1
 	 * @param StopId stopId de la parada de origen
 	 * @param fecha fecha 
 	 * @return Paradas alcanzables desde la parada de origen y si hubo que hacer transbordo o no para llegar a ella
@@ -41,7 +41,7 @@ public interface IManager {
 	public Bag<VO1>  paradasAlcanzables1( String StopId, String fecha );
 	
 	/**
-	 * M�todo para la segunda parte del punto 1
+	 * Mï¿½todo para la segunda parte del punto 1
 	 * @param stopIdOrigen StopId de la parada de origen
 	 * @param stopIdDestino StopId de la parada de destino
 	 * @return Secuencia de paradas para llegar desde la parada de origen a la parada de destino

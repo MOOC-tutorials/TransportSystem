@@ -46,11 +46,11 @@ public class DepthFirstOrderTest extends TestCase
 		try{
 			DFO = new DepthFirstOrder<>(graph);
 		}catch( Exception e){
-			fail( "No debería fallar" );
+			fail( "No deberÃ­a fallar" );
 		}
 		try{
 			DFO = new DepthFirstOrder<>(null);
-			fail( "Debería fallar" );
+			fail( "DeberÃ­a fallar" );
 		}catch( Exception e){
 
 		}

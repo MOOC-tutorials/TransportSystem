@@ -28,7 +28,7 @@ public class BagTest extends TestCase {
 		try{
 			list = new Bag<>();
 		} catch( Exception e){
-			fail( "No debería lanzar excepción" );
+			fail( "No deberÃ­a lanzar excepciÃ³n" );
 		}
 	}
 
@@ -37,7 +37,7 @@ public class BagTest extends TestCase {
 	 */
 	public void testDoubleLinkedList(){
 		setup1();
-		assertNotNull("La lista debió haber sido creada", list);
+		assertNotNull("La lista debiÃ³ haber sido creada", list);
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class BagTest extends TestCase {
 			int range =  5 ;     
 			list.addAtEnd(new Double((Math.random() * range)));
 		}
-		assertEquals("El tamaño no es el esperado", 100, list.getSize());
+		assertEquals("El tamaÃ±o no es el esperado", 100, list.getSize());
 	}
 
 	/**
@@ -58,9 +58,9 @@ public class BagTest extends TestCase {
 	 */
 	public void testIsEmpty(){
 		setup1();
-		assertTrue("La lista debería estar vacía", list.isEmpty());
+		assertTrue("La lista deberÃ­a estar vacÃ­a", list.isEmpty());
 		list.addAtEnd(new Double(3.4));
-		assertFalse("La lista no debería estar vacía", list.isEmpty());
+		assertFalse("La lista no deberÃ­a estar vacÃ­a", list.isEmpty());
 	}
 	
 	/**
@@ -72,10 +72,10 @@ public class BagTest extends TestCase {
 		int range = 4;
 		Double random = new Double( Math.random() * range);
 		list.addAtEnd(random);
-		assertEquals("El úlimo nodo no es el esperado", random, list.getLast());
+		assertEquals("El Ãºlimo nodo no es el esperado", random, list.getLast());
 		random = new Double( Math.random() * range);
 		list.addAtEnd(random);
-		assertEquals( "El último nodo no es el esperado", random, list.getLast());
+		assertEquals( "El Ãºltimo nodo no es el esperado", random, list.getLast());
 	}
 
 
@@ -89,18 +89,18 @@ public class BagTest extends TestCase {
 		try{
 			Double toAdd = new Double( 5.555 );
 			list.addAtK(toAdd, 2);
-			fail( "No debería agregar el nodo" );
+			fail( "No deberÃ­a agregar el nodo" );
 		} catch( NoSuchElementException e){
-			assertTrue("No se agregó el nodo", list.isEmpty());
+			assertTrue("No se agregÃ³ el nodo", list.isEmpty());
 		}
 
 		try{
 			list.addAtEnd(5.555);
 			list.addAtEnd(5.555);
 			list.addAtK(3.5, 3);
-			fail( "No debería agregar el nodo" );
+			fail( "No deberÃ­a agregar el nodo" );
 		} catch( NoSuchElementException e){
-			assertEquals( "No se agregó el nodo", 2, list.getSize() );
+			assertEquals( "No se agregÃ³ el nodo", 2, list.getSize() );
 		}
 		list = new Bag<Double>();
 		list.addAtEnd(5.2);
@@ -134,7 +134,7 @@ public class BagTest extends TestCase {
 	public void testGetElement(){
 		setup1();
 
-		assertNull( "Debería ser null", list.getElement(1) );
+		assertNull( "DeberÃ­a ser null", list.getElement(1) );
 
 		Double[] doubles = new Double[100];
 		int range = 10;
@@ -147,7 +147,7 @@ public class BagTest extends TestCase {
 			assertEquals( "El nodo no es el esperado", doubles[cnt], element );
 			cnt++;
 		}
-		assertNull( "Debería ser null", list.getElement(doubles.length) );
+		assertNull( "DeberÃ­a ser null", list.getElement(doubles.length) );
 	}
 
 	/**
@@ -165,24 +165,24 @@ public class BagTest extends TestCase {
 		
 		try{
 			list.delete( 100.5 );
-			fail( "No debería eliminar el nodo" );
+			fail( "No deberÃ­a eliminar el nodo" );
 		} catch( NoSuchElementException e){
-			assertEquals( "El tamaño de la lista no es el esperado", doubles.length, list.getSize() );
+			assertEquals( "El tamaÃ±o de la lista no es el esperado", doubles.length, list.getSize() );
 		}
 
 		
 		list.delete(doubles[doubles.length-1] );
-		assertEquals( "El último nodo no es el esperado", doubles[98], list.getLast() );
-		assertEquals( "El tamaño de la lista no es el esperado", doubles.length - 1, list.getSize());
+		assertEquals( "El Ãºltimo nodo no es el esperado", doubles[98], list.getLast() );
+		assertEquals( "El tamaÃ±o de la lista no es el esperado", doubles.length - 1, list.getSize());
 
 		
 		list.delete(doubles[60]);
 		assertEquals( "El nodo no es el esperado", doubles[61], list.getElement(60) );
-		assertEquals( "El tamaño de la lista no es el esperado", doubles.length - 2, list.getSize());
+		assertEquals( "El tamaÃ±o de la lista no es el esperado", doubles.length - 2, list.getSize());
 		
 		list.delete(doubles[0]);
 		assertEquals( "El primer nodo no es el esperado", doubles[1], list.getFirst() );
-		assertEquals( "El tamaño de la lista no es el esperado", doubles.length - 3, list.getSize());
+		assertEquals( "El tamaÃ±o de la lista no es el esperado", doubles.length - 3, list.getSize());
 
 	}
 
@@ -202,22 +202,22 @@ public class BagTest extends TestCase {
 
 		try{
 			list.deleteAtK(doubles.length);
-			fail( "Debería lanzar excepción" );
+			fail( "DeberÃ­a lanzar excepciÃ³n" );
 		} catch( NoSuchElementException e){
-			assertEquals( "El tamaño de la lista no es el esperado", doubles.length, list.getSize() );
+			assertEquals( "El tamaÃ±o de la lista no es el esperado", doubles.length, list.getSize() );
 		}
 
 		list.deleteAtK(doubles.length - 1);
 		assertEquals( "El nodo no es el esperado", doubles[doubles.length - 2], list.getLast() );
-		assertEquals( "El tamaño de la lista no es el esperado", doubles.length -1, list.getSize());
+		assertEquals( "El tamaÃ±o de la lista no es el esperado", doubles.length -1, list.getSize());
 
 
 		list.deleteAtK(50);
 		assertEquals( "El nodo no es el esperado", doubles[51], list.getElement(50));
-		assertEquals( "El tamaño de la lista no es el esperado", doubles.length -2, list.getSize());
+		assertEquals( "El tamaÃ±o de la lista no es el esperado", doubles.length -2, list.getSize());
 		list.deleteAtK(0);
 		assertEquals( "El nodo no es el esperado", doubles[1], list.getFirst() );
-		assertEquals( "El tamaño de la lista no es el esperado", doubles.length -3, list.getSize());
+		assertEquals( "El tamaÃ±o de la lista no es el esperado", doubles.length -3, list.getSize());
 	}
 
 	/**
@@ -235,18 +235,18 @@ public class BagTest extends TestCase {
 		
 		try{
 			list.positionOf(100.5);
-			fail( "Debería fallar" );
+			fail( "DeberÃ­a fallar" );
 		} catch( NoSuchElementException e ){
-			assertEquals("El tamaño de la lista no es el esperado", doubles.length, list.getSize());
+			assertEquals("El tamaÃ±o de la lista no es el esperado", doubles.length, list.getSize());
 		}
 
-		assertEquals( "La posición del nodo no es la esperada", 0, list.positionOf(doubles[0]) );
-		assertEquals( "La posición del nodo no es la esperada", 55, list.positionOf(doubles[55]) );
-		assertEquals( "La posición del nodo no es la esperada", doubles.length -1, list.positionOf(doubles[doubles.length -1]) );
+		assertEquals( "La posiciÃ³n del nodo no es la esperada", 0, list.positionOf(doubles[0]) );
+		assertEquals( "La posiciÃ³n del nodo no es la esperada", 55, list.positionOf(doubles[55]) );
+		assertEquals( "La posiciÃ³n del nodo no es la esperada", doubles.length -1, list.positionOf(doubles[doubles.length -1]) );
 	}
 	
 	/**
-	 * Prueba el método replace de DoubleLinkedList
+	 * Prueba el mÃ©todo replace de DoubleLinkedList
 	 */
 	public void testReplace(){
 		setup1();

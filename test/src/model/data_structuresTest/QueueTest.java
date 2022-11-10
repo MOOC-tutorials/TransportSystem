@@ -38,7 +38,7 @@ public class QueueTest extends TestCase {
 
 		}
 		catch(Exception e){
-			fail( "No debería lanzar excepción" );	
+			fail( "No deberÃ­a lanzar excepciÃ³n" );	
 		}
 
 
@@ -58,10 +58,10 @@ public class QueueTest extends TestCase {
 		setUp1();
 
 
-		assertTrue("La fila debería estar vacía", fila.isEmpty());
+		assertTrue("La fila deberÃ­a estar vacÃ­a", fila.isEmpty());
 
 		fila.enqueue(node1.getElement());
-		assertFalse("La lista no debería estar vacía", fila.isEmpty());
+		assertFalse("La lista no deberÃ­a estar vacÃ­a", fila.isEmpty());
 	}
 
 	/**
@@ -86,20 +86,20 @@ public class QueueTest extends TestCase {
 		setUp1();
 		fila.enqueue(node1.getElement());
 		assertEquals( "El primer elemento no es el esperado", node1.getElement(), fila.peek());
-		assertEquals( "El último elemento no es el esperado", node1.getElement(), fila.getlast().getElement() );
-		assertEquals( "El tamaño de la lista no es el esperado", 1, fila.getSize() );
+		assertEquals( "El Ãºltimo elemento no es el esperado", node1.getElement(), fila.getlast().getElement() );
+		assertEquals( "El tamaÃ±o de la lista no es el esperado", 1, fila.getSize() );
 		assertNull( "El nodo siguiente no es el esperado", node1.getNext() );
 
 		fila.enqueue(node2.getElement());
 		assertEquals( "El primer elemento no es el esperado", node1.getElement(), fila.peek());
 		assertEquals ("El elemento ultimo elemento no es el esperado",node2.getElement(), fila.getlast().getElement());
-		assertEquals( "El tamaño de la lista no es el esperado", 2, fila.getSize() );
+		assertEquals( "El tamaÃ±o de la lista no es el esperado", 2, fila.getSize() );
 		assertNull( "El elemento siguiente no es el esperado", node2.getNext() );
 
 		fila.enqueue(node3.getElement());
 		assertEquals( "El primer elemento no es el esperado", node1.getElement(), fila.peek());
 		assertEquals ("El elemento ultimo elemento no es el esperado",node3.getElement(), fila.getlast().getElement());
-		assertEquals( "El tamaño de la lista no es el esperado", 3, fila.getSize() );
+		assertEquals( "El tamaÃ±o de la lista no es el esperado", 3, fila.getSize() );
 		assertNull( "El elemento siguiente no es el esperado", node3.getNext() );
 
 

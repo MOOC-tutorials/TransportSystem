@@ -3,7 +3,7 @@ package model.data_structures;
 import api.IHashTable;
 
 /**
- * Implementaci�n de una tabla de hash con soluci�n de conflictos por chaining hash
+ * Implementaciï¿½n de una tabla de hash con soluciï¿½n de conflictos por chaining hash
  * Basada en: http://algs4.cs.princeton.edu/34hash/SeparateChainingHashST.java.html
  * @param <Key> Tipo de key que se va a usar
  * @param <Value> Tipo de value que contiene la tabla
@@ -13,11 +13,11 @@ public  class SeparateChainingHash <Key, Value> implements IHashTable<Key, Value
 	private static final int INIT_CAPACITY = 4;
 
 	/**
-	 * n�mero de parejas Key.-value   
+	 * nï¿½mero de parejas Key.-value   
 	 */
 	private int pairs;                           
 	/**
-	 * tama�o de la tabla    
+	 * tamaï¿½o de la tabla    
 	 */
 	private int size;                                
 	/**
@@ -33,8 +33,8 @@ public  class SeparateChainingHash <Key, Value> implements IHashTable<Key, Value
 	} 
 
 	/**
-	 * Inicializa una nueva tabla vacia con pSize n�mero de cadenas 
-	 * * @param pSize N�mero inicial de parejas.
+	 * Inicializa una nueva tabla vacia con pSize nï¿½mero de cadenas 
+	 * * @param pSize Nï¿½mero inicial de parejas.
 	 */
 	public SeparateChainingHash(int pSize) {
 		this.size = pSize;
@@ -44,7 +44,7 @@ public  class SeparateChainingHash <Key, Value> implements IHashTable<Key, Value
 	} 
 
 	/**
-	 * aumenta el tama�o de la tabla al numero dado de cadenas
+	 * aumenta el tamaï¿½o de la tabla al numero dado de cadenas
 	 * @param pChains numero nuevo de cadenas 
 	 */
 	private void resize(int pChains) {
@@ -61,7 +61,7 @@ public  class SeparateChainingHash <Key, Value> implements IHashTable<Key, Value
 	
 	/**
 	 * @param key key del elemento
-	 * @return un entero positivo menor que el tama�o de la tabla seg�n el hashCode del key 
+	 * @return un entero positivo menor que el tamaï¿½o de la tabla segï¿½n el hashCode del key 
 	 */
 	private int hash(Key key) {
 		return (key.hashCode() & 0x7fffffff) % size;
@@ -112,7 +112,7 @@ public  class SeparateChainingHash <Key, Value> implements IHashTable<Key, Value
 
 	/**
 	 *  inserta el key-value especificado en la tabla, agregando el nuevo valor 
-	 *  a una sequential search encabezada por �l si la tabla ya contenia la key especificada
+	 *  a una sequential search encabezada por ï¿½l si la tabla ya contenia la key especificada
 	 *  borra el key-value especificado si el value ingresado es null 
 	 *
 	 * @param  key

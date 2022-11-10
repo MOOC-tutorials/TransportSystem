@@ -16,7 +16,7 @@ private DirectedGraph<Integer, Integer> graph;
 	
 	private int tamanioComponentes = 10;
 	
-	//Crea un grafo con un número de componentes conexos igual a módulo
+	//Crea un grafo con un nÃºmero de componentes conexos igual a mÃ³dulo
 	public void setup1(){
 		
 		graph = new DirectedGraph<>(modulo*tamanioComponentes);

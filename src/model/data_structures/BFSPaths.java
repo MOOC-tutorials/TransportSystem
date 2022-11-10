@@ -3,20 +3,20 @@ package model.data_structures;
 import java.util.NoSuchElementException;
 
 /**
- * Clase para encontrar la distancia y los caminos entre v�rtices
- * Implementaci�n basada en: https://algs4.cs.princeton.edu/42digraph/DepthFirstDirectedPaths.java.html
- * @param <K> tipo de llave de los v�rtices	
- * @param <V> tipo de valor de los v�rtices
+ * Clase para encontrar la distancia y los caminos entre vï¿½rtices
+ * Implementaciï¿½n basada en: https://algs4.cs.princeton.edu/42digraph/DepthFirstDirectedPaths.java.html
+ * @param <K> tipo de llave de los vï¿½rtices	
+ * @param <V> tipo de valor de los vï¿½rtices
  */
 public class BFSPaths<K, V> {
 	
 	/**
-	 * Constante para indicar que la distancia entre dos nodos es infinita (no tienen conexi�n)
+	 * Constante para indicar que la distancia entre dos nodos es infinita (no tienen conexiï¿½n)
 	 */
 	private static final int INFINITY = Integer.MAX_VALUE;
 	
 	/**
-	 * Arreglo de booleans que indican si el v�rtice ya fue visitado en BFS
+	 * Arreglo de booleans que indican si el vï¿½rtice ya fue visitado en BFS
 	 */
 	private boolean marked[];
 	
@@ -27,17 +27,17 @@ public class BFSPaths<K, V> {
 	private DirectedEdge<K>[] edgeTo;
 	
 	/**
-	 * Arreglo de enteros con las distancias de un v�rtice a los dem�s
+	 * Arreglo de enteros con las distancias de un vï¿½rtice a los demï¿½s
 	 */
 	private double[] distTo;
 	
 	/**
-	 * Arreglo con una copia de los v�rtices del grafo
+	 * Arreglo con una copia de los vï¿½rtices del grafo
 	 */
 	private Vertex<K, V>[] vertices;
 
 	/**
-	 * Hace BFS desde un v�rtice que entra por par�metro.
+	 * Hace BFS desde un vï¿½rtice que entra por parï¿½metro.
 	 * @param graph Grafo sobre el que se va a hacer BFS
 	 * @param source Origen de BFS
 	 */
@@ -57,9 +57,9 @@ public class BFSPaths<K, V> {
 	}
 	
 	/**
-	 * Hace BFS desde m�ltiples fuentes, �til para saber a qu� elementos del iterable se puede llegar desde los dem�s
+	 * Hace BFS desde mï¿½ltiples fuentes, ï¿½til para saber a quï¿½ elementos del iterable se puede llegar desde los demï¿½s
 	 * @param graph Grafo sobre el que se va a hacer BFS
-	 * @param sources Iterable de v�rtices
+	 * @param sources Iterable de vï¿½rtices
 	 */
 	@SuppressWarnings("unchecked")
 	public BFSPaths( DirectedGraph<K, V> graph, Iterable<Vertex<K, V>> sources ){
@@ -103,9 +103,9 @@ public class BFSPaths<K, V> {
 	}
 	
 	/**
-	 * Algoritmo BFS para varios or�genes
+	 * Algoritmo BFS para varios orï¿½genes
 	 * @param graph Grafo sobre el que se va a hacer BFS
-	 * @param sources Iterable de v�rtices
+	 * @param sources Iterable de vï¿½rtices
 	 */
 	private void BFS( DirectedGraph<K, V> graph, Iterable<Vertex<K, V>> sources){
 		Queue<Vertex<K, V>> queue = new Queue<>();
@@ -132,32 +132,32 @@ public class BFSPaths<K, V> {
 	}
 	
 	/**
-	 * Si el BFS se hace desde un s�lo origen, indica si se puede llegar desde el v�rtice origen al v�rtice que se indica por par�metro.
-	 * Si el BFS se hace desde m�ltiples or�genes, indica si es posible llegar desde por lo menos un v�rtice al v�rtice que se indica por par�metro.
-	 * @param vertex v�rtice al que se quiere llegar desde el origen/or�genes
-	 * @return true si se puede llegar al v�rtice desde el origen / si se puede llegar al v�rtice desde cualquier v�rtice origen, false de lo contrario
+	 * Si el BFS se hace desde un sï¿½lo origen, indica si se puede llegar desde el vï¿½rtice origen al vï¿½rtice que se indica por parï¿½metro.
+	 * Si el BFS se hace desde mï¿½ltiples orï¿½genes, indica si es posible llegar desde por lo menos un vï¿½rtice al vï¿½rtice que se indica por parï¿½metro.
+	 * @param vertex vï¿½rtice al que se quiere llegar desde el origen/orï¿½genes
+	 * @return true si se puede llegar al vï¿½rtice desde el origen / si se puede llegar al vï¿½rtice desde cualquier vï¿½rtice origen, false de lo contrario
 	 */
 	public boolean hasPathTo( Vertex<K, V> vertex ){
 		return marked[positionOf(vertex.getKey())];
 	}
 	
 	/**
-	 * S�lo es v�lido si el BFS se hace desde un s�lo origen.
-	 * @param vertex v�rtice del cual se quiere conocer su distancia desde el origen
+	 * Sï¿½lo es vï¿½lido si el BFS se hace desde un sï¿½lo origen.
+	 * @param vertex vï¿½rtice del cual se quiere conocer su distancia desde el origen
 	 * @return Distancia desde el origen
-	 * @throws NoSuchElementException si no es posible llegar desde el origen al v�rtice
+	 * @throws NoSuchElementException si no es posible llegar desde el origen al vï¿½rtice
 	 */
 	public double distTo( Vertex<K, V> vertex ) throws NoSuchElementException{
 		double distToVertex = distTo[positionOf(vertex.getKey())]; 
 		if( distToVertex < INFINITY )
 			return distToVertex;
 		else
-			throw new NoSuchElementException( "El v�rtice no tiene un camino a " + vertex );
+			throw new NoSuchElementException( "El vï¿½rtice no tiene un camino a " + vertex );
 	}
 	
 	/**
-	 * @param vertex v�rtice del cual se quiere conocer el camino para llegar desde el origen al v�rtice
-	 * @return Iterable con los ejes en el camino para llegar desde el origen hasta el v�rtice
+	 * @param vertex vï¿½rtice del cual se quiere conocer el camino para llegar desde el origen al vï¿½rtice
+	 * @return Iterable con los ejes en el camino para llegar desde el origen hasta el vï¿½rtice
 	 */
 	public Iterable<DirectedEdge<K>> pathTo( Vertex<K, V> vertex ){
 		if( !hasPathTo(vertex) )
@@ -175,22 +175,22 @@ public class BFSPaths<K, V> {
 	}
 	
 	/**
-	 * Indica la posici�n de la informaci�n del v�rtice en marked, edgeTo, distTo de acuerdo a vertices
-	 * @param vertex v�rtice del cual se quiere saber su posici�n
-	 * @return posici�n de la informaci�n del v�rtice en todos los arreglos
-	 * @throws NoSuchElementException si no encuentra el v�rtice, nunca deber�a lanzar excepci�n
+	 * Indica la posiciï¿½n de la informaciï¿½n del vï¿½rtice en marked, edgeTo, distTo de acuerdo a vertices
+	 * @param vertex vï¿½rtice del cual se quiere saber su posiciï¿½n
+	 * @return posiciï¿½n de la informaciï¿½n del vï¿½rtice en todos los arreglos
+	 * @throws NoSuchElementException si no encuentra el vï¿½rtice, nunca deberï¿½a lanzar excepciï¿½n
 	 */
 	private int positionOf( K key ) throws NoSuchElementException{
 		for( int i = 0; i < vertices.length; i++ ){
 			if( vertices[i].getKey().equals(key) )
 				return i;
 		}
-		throw new NoSuchElementException( "El v�rtice no fue encontrado" ); 
+		throw new NoSuchElementException( "El vï¿½rtice no fue encontrado" ); 
 	}
 	
 	/**
-	 * Copia los v�rtices del grafo en el arreglo v�rtices
-	 * @param graph Grafo del cual se quieren copiar los v�rtices
+	 * Copia los vï¿½rtices del grafo en el arreglo vï¿½rtices
+	 * @param graph Grafo del cual se quieren copiar los vï¿½rtices
 	 */
 	private void copyVertices( DirectedGraph<K, V> graph ){
 		int index = 0;

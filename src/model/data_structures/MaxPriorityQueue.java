@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /**
- * Implementación de una cola de prioridad.
+ * ImplementaciÃ³n de una cola de prioridad.
  * Tomada de http://algs4.cs.princeton.edu/24pq/MaxPQ.java.html
  * @param <T> Tipo de elementos de la cola de prioridad.
  */
@@ -16,7 +16,7 @@ public class MaxPriorityQueue<T extends Comparable<T>> implements Iterable<T> {
 	private  T[]pq;
 	
 	/**
-	 * Tamaño de la cola; 
+	 * TamaÃ±o de la cola; 
 	 */
 	private int size;
 	/**
@@ -25,7 +25,7 @@ public class MaxPriorityQueue<T extends Comparable<T>> implements Iterable<T> {
 	private Comparator<T> comparator;
 
 	/**
-	 * Crea una nueva cola de prioridad vacía.
+	 * Crea una nueva cola de prioridad vacÃ­a.
 	 * @param initCapacity Capacidad inicial de la cola de prioridad
 	 */
 	@SuppressWarnings("unchecked")
@@ -35,21 +35,21 @@ public class MaxPriorityQueue<T extends Comparable<T>> implements Iterable<T> {
 	}
 
 	/**
-	 * @return true si la cola de prioridad está vacía, false de lo contrario.
+	 * @return true si la cola de prioridad estÃ¡ vacÃ­a, false de lo contrario.
 	 */
 	public boolean isEmpty() {
 		return size == 0;
 	}
 	/**
-	 * @return Elemento con más prioridad de la lista.
+	 * @return Elemento con mÃ¡s prioridad de la lista.
 	 */
 	public T max() {
 		if (isEmpty()) throw new NoSuchElementException("cola de prioridad underflow");
 		return pq[1];
 	}
 	/**
-	 * Copia todos los elementos a un nuevo arreglo del tamaño ingresado por parámetro.
-	 * @param capacity nuevo tamaño del arreglo. Debe ser mayor que ele actual.
+	 * Copia todos los elementos a un nuevo arreglo del tamaÃ±o ingresado por parÃ¡metro.
+	 * @param capacity nuevo tamaÃ±o del arreglo. Debe ser mayor que ele actual.
 	 */
 	private void resize(int capacity) {
 		assert capacity > size;
@@ -62,7 +62,7 @@ public class MaxPriorityQueue<T extends Comparable<T>> implements Iterable<T> {
 	}
 
 	/**
-	 * Inserta un elemento al final y lo sube hasta su lugar según su prioridad.
+	 * Inserta un elemento al final y lo sube hasta su lugar segÃºn su prioridad.
 	 * @param pToadd Elemento que se va a insertar.
 	 */
 	public void insert(T pToadd) {
@@ -89,9 +89,9 @@ public class MaxPriorityQueue<T extends Comparable<T>> implements Iterable<T> {
 	}
 
 	/**
-	 * Recorre toda la cola verificando que los elementos estén en orden,
-	 * Si encuentra un elemento que no está en su lugar, lo intercambia hasta que esté bien.
-	 * @param k Número de veces que se desea hacer el swim.
+	 * Recorre toda la cola verificando que los elementos estÃ©n en orden,
+	 * Si encuentra un elemento que no estÃ¡ en su lugar, lo intercambia hasta que estÃ© bien.
+	 * @param k NÃºmero de veces que se desea hacer el swim.
 	 */
 	private void swim(int k) {
 		while (k > 1 && less(k/2, k)) {
@@ -102,8 +102,8 @@ public class MaxPriorityQueue<T extends Comparable<T>> implements Iterable<T> {
 
 	/**
 	 * Intercambia dos elementos.
-	 * @param i Posición del primer elemento.
-	 * @param j Posición del segundo elemento
+	 * @param i PosiciÃ³n del primer elemento.
+	 * @param j PosiciÃ³n del segundo elemento
 	 */
 	private void exch(int i, int j) {
 		T swap = pq[i];
@@ -112,8 +112,8 @@ public class MaxPriorityQueue<T extends Comparable<T>> implements Iterable<T> {
 	}
 
 	/**
-	 * Recorre la lista intercambiando los elementos con su siguiente si encuentra que no están ordenados por prioridad.
-	 * @param k Número de elementos en los que se desea hacer el sink.
+	 * Recorre la lista intercambiando los elementos con su siguiente si encuentra que no estÃ¡n ordenados por prioridad.
+	 * @param k NÃºmero de elementos en los que se desea hacer el sink.
 	 */
 	private void sink(int k) {
 		while (2*k <= size) {
@@ -129,8 +129,8 @@ public class MaxPriorityQueue<T extends Comparable<T>> implements Iterable<T> {
 
 	/**
 	 * Comprueba si el elemento i es menor que el elemento j.
-	 * @param i Posición de elemento 1.
-	 * @param j Posición del elemento 2.
+	 * @param i PosiciÃ³n de elemento 1.
+	 * @param j PosiciÃ³n del elemento 2.
 	 * @return true si el elemento 1 es menor que el 2, false de lo contrario.
 	 */
 	private boolean less(int i, int j) {
@@ -143,7 +143,7 @@ public class MaxPriorityQueue<T extends Comparable<T>> implements Iterable<T> {
 	}
 
 	/**
-	 * Revisa si el priority queue es un heap con el máximo como raiz.
+	 * Revisa si el priority queue es un heap con el mÃ¡ximo como raiz.
 	 * @return true si es un heap, false de lo contrario.
 	 */
 	private boolean isMaxHeap() {
@@ -152,7 +152,7 @@ public class MaxPriorityQueue<T extends Comparable<T>> implements Iterable<T> {
 
 	/**
 	 * Revisa si el sub heap con raiz en K es un heap.
-	 * @param k Posición de la raiz del sub heap.
+	 * @param k PosiciÃ³n de la raiz del sub heap.
 	 * @return true si el sub heap es un heap, false de lo contrario.
 	 */
 	private boolean isMaxHeap(int k) {
@@ -168,7 +168,7 @@ public class MaxPriorityQueue<T extends Comparable<T>> implements Iterable<T> {
 	}
 
 	/**
-	 * @return tamaño del priority queue.
+	 * @return tamaÃ±o del priority queue.
 	 */
 	public int size() {
 		return size;
@@ -204,7 +204,7 @@ public class MaxPriorityQueue<T extends Comparable<T>> implements Iterable<T> {
 		}
 
 		/**
-		 * @return true si la copia no está vacía, false de lo contrario. 
+		 * @return true si la copia no estÃ¡ vacÃ­a, false de lo contrario. 
 		 */
 		public boolean hasNext(){ 
 			return !copy.isEmpty();

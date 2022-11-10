@@ -7,8 +7,8 @@ package api;
 public interface IList<T> extends Iterable<T>  {
 
 	/**
-	 * Retorna el tama�o de la lista
-	 * @return el tama�o de la lista
+	 * Retorna el tamaï¿½o de la lista
+	 * @return el tamaï¿½o de la lista
 	 */
 	int getSize();
 
@@ -21,21 +21,21 @@ public interface IList<T> extends Iterable<T>  {
 
 	/**
 	 * Agrega un Nodo al final de la lista
-	 * @param pToAdd informaci�n a agregar
+	 * @param pToAdd informaciï¿½n a agregar
 	 */
 	void addAtEnd( T pToadd );
 
 	/**
-	 * Agrega un Nodo en la posici�n dada por parametro
-	 * @param pToadd Informaci�n a agregar
+	 * Agrega un Nodo en la posiciï¿½n dada por parametro
+	 * @param pToadd Informaciï¿½n a agregar
 	 * @param pIndex Indice en el que se quiere agregar
 	 */
 	void addAtK( T pToAdd, int pIndex );
 
 	/**
-	 * Retorna el nodo que se encuentra en la posici�n dada por parametro
-	 * @param pIndex posici�n del nodo que se quiere recuperar
-	 * @return Nodo en la posici�n dada por parametro
+	 * Retorna el nodo que se encuentra en la posiciï¿½n dada por parametro
+	 * @param pIndex posiciï¿½n del nodo que se quiere recuperar
+	 * @return Nodo en la posiciï¿½n dada por parametro
 	 */
 	T getElement( int pIndex );
 
@@ -46,15 +46,15 @@ public interface IList<T> extends Iterable<T>  {
 	void delete( T pNode );
 
 	/**
-	 * Elimina el nodo que se encuentra en la posici�n dada
-	 * @param pIndex posici�n del nodo que se quiere eliminar
+	 * Elimina el nodo que se encuentra en la posiciï¿½n dada
+	 * @param pIndex posiciï¿½n del nodo que se quiere eliminar
 	 */
 	void deleteAtK( int pIndex );
 
 	/**
-	 * Retorna la posici�n del nodo que se quiere buscar
+	 * Retorna la posiciï¿½n del nodo que se quiere buscar
 	 * @param pNode Nodo que se quiere buscar
-	 * @return posici�n del nodo que se quiere buscar
+	 * @return posiciï¿½n del nodo que se quiere buscar
 	 */
 	int positionOf( T pNode );
 

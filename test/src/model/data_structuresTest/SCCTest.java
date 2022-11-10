@@ -18,7 +18,7 @@ private DirectedGraph<Integer, Integer> graph;
 	
 	private int tamanioComponentes = 80;
 	
-	//Crea un grafo con un número de componentes conexos igual a módulo
+	//Crea un grafo con un nÃºmero de componentes conexos igual a mÃ³dulo
 	public void setup1(){
 		
 		graph = new DirectedGraph<>(modulo*tamanioComponentes);
@@ -43,11 +43,11 @@ private DirectedGraph<Integer, Integer> graph;
 		try{
 			SCC = new SCC<>(graph);
 		}catch( Exception e){
-			fail( "No debería fallar" );
+			fail( "No deberÃ­a fallar" );
 		}
 		try{
 			SCC = new SCC<>(null);
-			fail( "Debería fallar" );
+			fail( "DeberÃ­a fallar" );
 		}catch( Exception e){
 			
 		}
@@ -57,14 +57,14 @@ private DirectedGraph<Integer, Integer> graph;
 		setup1();
 		SCC = new SCC<>(graph);
 		for( Vertex<Integer, Integer> currentVertex : graph.vertices() ){
-			assertEquals("El vértice no está en el componente conexo esperado", SCC.id(currentVertex.getKey()), SCC.id(currentVertex.getKey()));
+			assertEquals("El vÃ©rtice no estÃ¡ en el componente conexo esperado", SCC.id(currentVertex.getKey()), SCC.id(currentVertex.getKey()));
 		}
 	}
 	
 	public void testCount(){
 		setup1();
 		SCC = new SCC<>(graph);
-		assertEquals("El número de componentes conexos no es el esperado",modulo, SCC.count());
+		assertEquals("El nÃºmero de componentes conexos no es el esperado",modulo, SCC.count());
 	}
 	
 	

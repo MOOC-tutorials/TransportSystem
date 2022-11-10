@@ -34,14 +34,14 @@ public class EdgeWeightedGraphTest extends TestCase{
 		try{
 			setup1();
 		}catch( IllegalArgumentException e){
-			fail( "No debería fallar" );
+			fail( "No deberÃ­a fallar" );
 		}
 	}
 
 	public void testEdgeWeightedGraphError(){
 		try{
 			graph = new EdgeWeightedGraph<>(-1);
-			fail( "Debería fallar" );
+			fail( "DeberÃ­a fallar" );
 		}catch (IllegalArgumentException e) {
 
 		}
@@ -49,7 +49,7 @@ public class EdgeWeightedGraphTest extends TestCase{
 
 	public void testV(){
 		setup2();
-		assertEquals("La cantidad de vértices no es la esperada", graph.capacity(), graph.V());
+		assertEquals("La cantidad de vÃ©rtices no es la esperada", graph.capacity(), graph.V());
 	}
 
 	public void testE(){
@@ -58,19 +58,19 @@ public class EdgeWeightedGraphTest extends TestCase{
 		for( Edge<Integer> currentEdge : graph.edges()){
 			expectedEdges++;
 		}
-		assertEquals("El número de ejes no es el esperado", expectedEdges, graph.E() );
+		assertEquals("El nÃºmero de ejes no es el esperado", expectedEdges, graph.E() );
 	}
 
 	public void testAddVertex(){
 		setup1();
-		//Prueba que se agreguen los vértices
+		//Prueba que se agreguen los vÃ©rtices
 		for( int i = 0; i < graph.capacity(); i++ ){
 			graph.addVertex(i, i);
 		}
 		Integer currentKey = 0;
 		for( Vertex<Integer, Integer> currentVertex : graph.vertices()){
-			assertEquals("La llave del vértice no es la esperada", currentKey, currentVertex.getKey());
-			assertEquals("El valor del vértice no es el esperado", currentKey, currentVertex.getValue());
+			assertEquals("La llave del vÃ©rtice no es la esperada", currentKey, currentVertex.getKey());
+			assertEquals("El valor del vÃ©rtice no es el esperado", currentKey, currentVertex.getValue());
 			currentKey++;
 		}
 
@@ -83,8 +83,8 @@ public class EdgeWeightedGraphTest extends TestCase{
 		Integer currentKey2 = 0;
 		currentKey = 0;
 		for( Vertex<Integer, Integer> currentVertex : graph.vertices()){
-			assertEquals("La llave del vértice no es la esperada", currentKey, currentVertex.getKey());
-			assertEquals("El valor del vértice no es el esperado", currentKey2, currentVertex.getValue());
+			assertEquals("La llave del vÃ©rtice no es la esperada", currentKey, currentVertex.getKey());
+			assertEquals("El valor del vÃ©rtice no es el esperado", currentKey2, currentVertex.getValue());
 			currentKey2 += 100;
 			currentKey++;
 		}
@@ -96,8 +96,8 @@ public class EdgeWeightedGraphTest extends TestCase{
 		}
 		currentKey = 0;
 		for( Vertex<Integer, Integer> currentVertex : graph.vertices()){
-			assertEquals("La llave del vértice no es la esperada", currentKey, currentVertex.getKey());
-			assertEquals("El valor del vértice no es el esperado", currentKey, currentVertex.getValue());
+			assertEquals("La llave del vÃ©rtice no es la esperada", currentKey, currentVertex.getKey());
+			assertEquals("El valor del vÃ©rtice no es el esperado", currentKey, currentVertex.getValue());
 			currentKey++;
 		}
 	}
@@ -109,11 +109,11 @@ public class EdgeWeightedGraphTest extends TestCase{
 				graph.addEdge(i, i+1, i+0.5);
 			}
 		}catch (IllegalStateException e){
-			fail( "No debería lanzar excepción.");
+			fail( "No deberÃ­a lanzar excepciÃ³n.");
 		}
 		try{
 			graph.addEdge(1, 2, 1.5);
-			fail( "debería lanzar excepción");
+			fail( "deberÃ­a lanzar excepciÃ³n");
 		}catch (IllegalStateException e){
 
 		}
@@ -130,8 +130,8 @@ public class EdgeWeightedGraphTest extends TestCase{
 	public void testContainsVertex(){
 		setup2();
 		for( int i = 0; i < graph.V(); i++ ){
-			assertTrue("El grafo no contiene el vértice", graph.containsVertex(i));
-			assertFalse("El grafo no debería contener el vértice", graph.containsVertex(i + 100000000));
+			assertTrue("El grafo no contiene el vÃ©rtice", graph.containsVertex(i));
+			assertFalse("El grafo no deberÃ­a contener el vÃ©rtice", graph.containsVertex(i + 100000000));
 		}
 	}
 	
@@ -147,14 +147,14 @@ public class EdgeWeightedGraphTest extends TestCase{
 
 		}
 		expectedEdge = new Edge<Integer>(99, 0, 99.5);
-		assertFalse( "El grafo no debería contener el eje", graph.containsEdge(expectedEdge) );
+		assertFalse( "El grafo no deberÃ­a contener el eje", graph.containsEdge(expectedEdge) );
 	}
 	
 	public void testDeleteEdge(){
 		setup3();
 		try{
 			graph.deleteEdge( 500, 10, 10.5);;
-			fail( "Debería lanzar excepción" );
+			fail( "DeberÃ­a lanzar excepciÃ³n" );
 		}catch (NoSuchElementException e){
 
 		}
@@ -162,10 +162,10 @@ public class EdgeWeightedGraphTest extends TestCase{
 			for( Edge<Integer> currentEdge : graph.edges()){
 				graph.deleteEdge( currentEdge );
 			}
-			assertTrue("No debería haber ejes en el grafo",graph.E() == 0);
+			assertTrue("No deberÃ­a haber ejes en el grafo",graph.E() == 0);
 		}catch (NoSuchElementException e){
 			e.printStackTrace();
-			fail("No debería lanzar excepción");
+			fail("No deberÃ­a lanzar excepciÃ³n");
 
 		}
 	}
@@ -175,18 +175,18 @@ public class EdgeWeightedGraphTest extends TestCase{
 		setup3();
 		try{
 			graph.deleteVertex(500);;
-			fail( "Debería lanzar excepción" );
+			fail( "DeberÃ­a lanzar excepciÃ³n" );
 		}catch (NoSuchElementException e){
 
 		}
 		try{
 			for( int i = 99; i >= 0; i--){
 				graph.deleteVertex(i);
-				assertFalse("El grafo no debería tener el vértice", graph.containsVertex(i));
+				assertFalse("El grafo no deberÃ­a tener el vÃ©rtice", graph.containsVertex(i));
 			}
-			assertTrue("El grafo debería estar vacío", graph.isEmpty());
+			assertTrue("El grafo deberÃ­a estar vacÃ­o", graph.isEmpty());
 		}catch (NoSuchElementException e){
-			fail("No debería lanzar excepción");
+			fail("No deberÃ­a lanzar excepciÃ³n");
 		}
 	}
 	
@@ -195,7 +195,7 @@ public class EdgeWeightedGraphTest extends TestCase{
 		System.out.println(graph);
 		graph.addEdge(0, 99, 99.0);
 		for(Vertex<Integer, Integer> currentVertex : graph.vertices()){
-			assertEquals("El grado del vértice no es el esperado" ,graph.degree(currentVertex.getKey()), 2 );
+			assertEquals("El grado del vÃ©rtice no es el esperado" ,graph.degree(currentVertex.getKey()), 2 );
 		}
 	}
 }

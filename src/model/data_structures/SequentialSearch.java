@@ -2,7 +2,7 @@ package model.data_structures;
 
 
 /**
- * Implementación de una sequential search para la tabla de hash con separate chaining
+ * ImplementaciÃ³n de una sequential search para la tabla de hash con separate chaining
  * basada en: http://algs4.cs.princeton.edu/34hash/SequentialSearchST.java.html
  * @param <Key> tipo de key de la lista
  * @param <Value> tipo de values de la lista
@@ -136,7 +136,7 @@ public class SequentialSearch<Key , Value>  {
 	 * elimina la llave en la lista encadenada en el nodo pNode
 	 * @param pNode nodo en el que se va a eliminar la key 
 	 * @param key la key que se desea eliminar
-	 * @return el nodo que se eliminó
+	 * @return el nodo que se eliminÃ³
 	 */
 	private Node delete(Node pNode, Key key) {
 		if (pNode == null) return null;

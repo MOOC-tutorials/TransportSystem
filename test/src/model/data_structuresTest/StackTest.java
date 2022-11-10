@@ -38,7 +38,7 @@ public class StackTest extends TestCase {
 
 		}
 		catch(Exception e){
-			fail( "No debería lanzar excepción" );	
+			fail( "No deberÃ­a lanzar excepciÃ³n" );	
 		}
 
 
@@ -61,10 +61,10 @@ public class StackTest extends TestCase {
 		setUp1();
 
 
-		assertTrue("La fila debería estar vacía", pila.isEmpty());
+		assertTrue("La fila deberÃ­a estar vacÃ­a", pila.isEmpty());
 
 		pila.push(node1.getElement());
-		assertFalse("La lista no debería estar vacía", pila.isEmpty());
+		assertFalse("La lista no deberÃ­a estar vacÃ­a", pila.isEmpty());
 	}
 
 

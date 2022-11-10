@@ -5,12 +5,12 @@ import java.util.NoSuchElementException;
 
 public class Cycles<K,V> {
 	/**
-	 * Arreglo que en cada posici�n tiene un boolean para indicar cuando se marca un v�rtice en DFS.
+	 * Arreglo que en cada posiciï¿½n tiene un boolean para indicar cuando se marca un vï¿½rtice en DFS.
 	 */
 	private boolean [] marked;
 
 	/**
-	 * Arreglo que en cada posici�n
+	 * Arreglo que en cada posiciï¿½n
 	 */
 	private int [] edgeTo;
 
@@ -160,8 +160,8 @@ public class Cycles<K,V> {
 }
 
 	/**
-	 * Copia los v�rtices del grafo en el arreglo v�rtices
-	 * @param graph Grafo del cual se quieren copiar los v�rtices
+	 * Copia los vï¿½rtices del grafo en el arreglo vï¿½rtices
+	 * @param graph Grafo del cual se quieren copiar los vï¿½rtices
 	 */
 	private void copyVertices( DirectedGraph<K, V> graph ){
 		int index = 0;
@@ -182,6 +182,6 @@ public class Cycles<K,V> {
 			if( vertices[i].getKey().equals(key) )
 				return i;
 		}
-		throw new NoSuchElementException( "El v�rtice no fue encontrado" ); 
+		throw new NoSuchElementException( "El vï¿½rtice no fue encontrado" ); 
 	}
 }

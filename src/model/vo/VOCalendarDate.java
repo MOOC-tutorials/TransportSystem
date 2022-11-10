@@ -15,7 +15,7 @@ public class VOCalendarDate implements Comparable<VOCalendarDate> {
 	public int date;
 
 	/**
-	 * Tipo de excepción en el servicio.
+	 * Tipo de excepciÃ³n en el servicio.
 	 */
 	public int exceptionType;
 

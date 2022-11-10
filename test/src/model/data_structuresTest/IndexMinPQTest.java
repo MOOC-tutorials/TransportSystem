@@ -20,9 +20,9 @@ public class IndexMinPQTest extends TestCase{
 	
 	public void testIsempty(){
 		setup1();
-		assertTrue("La cola debería estar vacía", pq.isEmpty());
+		assertTrue("La cola deberÃ­a estar vacÃ­a", pq.isEmpty());
 		setup2();
-		assertFalse("La cola no debería estar vacía", pq.isEmpty());
+		assertFalse("La cola no deberÃ­a estar vacÃ­a", pq.isEmpty());
 	}
 	
 	public void testInsert(){
@@ -38,7 +38,7 @@ public class IndexMinPQTest extends TestCase{
 				}
 			}
 		}
-		assertTrue("Debería ser true", greaterThanCurrentMin);
+		assertTrue("DeberÃ­a ser true", greaterThanCurrentMin);
 	}
 	
 	public void testDelMin(){
@@ -52,28 +52,28 @@ public class IndexMinPQTest extends TestCase{
 				greaterThanMin = false;
 				break;
 		}
-		assertTrue("Deberìa ser true", greaterThanMin);
+		assertTrue("DeberÃ¬a ser true", greaterThanMin);
 	}
 	
 	public void testSize(){
 		setup2();
-		assertEquals("El tamaño de la cola no es el esperado",100, pq.size());
+		assertEquals("El tamaÃ±o de la cola no es el esperado",100, pq.size());
 	}
 	
 	public void testContains(){
 		setup1();
 		
 		for( int i = 0; i < 100; i++){
-			assertFalse("La cola no debería tener el elemento", pq.contains(i));
+			assertFalse("La cola no deberÃ­a tener el elemento", pq.contains(i));
 		}
 		setup2();
 		for( int i = 0; i < 100; i++){
-			assertTrue("La cola debería tener el elemento", pq.contains(i));
+			assertTrue("La cola deberÃ­a tener el elemento", pq.contains(i));
 		}
 		for( int i = 100; i < 200; i++ ){
 			try{
 				pq.contains(i);
-				fail( "Debería lanzar excepción ");
+				fail( "DeberÃ­a lanzar excepciÃ³n ");
 			}catch ( IllegalArgumentException e){
 				
 			}
@@ -127,6 +127,6 @@ public class IndexMinPQTest extends TestCase{
 		for( int i = 0; i < 100; i++){
 			pq.delete(i);
 		}
-		assertTrue("La cola debería estar vacía", pq.isEmpty());
+		assertTrue("La cola deberÃ­a estar vacÃ­a", pq.isEmpty());
 	}
 }
